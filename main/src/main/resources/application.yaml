@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /main
+
+
+
+    
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3306/database1"
+    username: root
+    password: root
