@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserSevice {
     private final UserRepo userRepo;
@@ -28,6 +30,14 @@ public class UserSevice {
             return user;
         }
         throw new RuntimeException("Invalid username or password");
+    }
+
+    public List<UserEntity> searchUsers(String query) {
+        return userRepo.findByUsernameContaining(query);
+    }
+
+    public UserEntity saveUser(UserEntity user) {
+        return userRepo.save(user);
     }
 
 }
