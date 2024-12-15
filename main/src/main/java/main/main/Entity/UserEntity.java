@@ -1,21 +1,23 @@
 package main.main.Entity;
 
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity {
-    @Id
+
     private Long id; // Không dùng AUTO_INCREMENT theo yêu cầu
 
     private String username;
 
     private String password;
+
 
     // Constructors
     public UserEntity() {}
