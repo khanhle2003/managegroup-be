@@ -7,10 +7,11 @@ server:
 
     
 spring:
-  datasource:
-    url: "jdbc:mysql://localhost:3306/new_schema"
+  datasource: 
+    url: "jdbc:mysql://localhost:3306/managegroup"
+    # url: "jdbc:mysql://localhost:3306/new_schema"
     username: root
-    password: Khoa@2003
+    password: root
   jpa:
     hibernate:
       ddl-auto: update

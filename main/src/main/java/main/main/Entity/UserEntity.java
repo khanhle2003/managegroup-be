@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "users")
 public class UserEntity {
-
+    @Id
     private Long id; // Không dùng AUTO_INCREMENT theo yêu cầu
 
     private String username;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trip List</title>
+</head>
+<body>
+    <h1>Trip List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Unit</th>
+                <th>Country</th>
+                <th>Trip Purpose</th>
+                <th>Job Title</th>
+                <th>Self Funded</th>
+                <th>Sponsor</th>
+                <th>Hospital</th>
+                <th>HD/BC</th>
+                <th>Invitation Unit</th>
+                <th>Doan</th>
+                <th>Party Member</th>
+                <th>Foreign Trip Count</th>
+                <th>Notification Number</th>
+                <th>Notification Date</th>
+                <th>City</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="trip : ${trips}">
+                <td th:text="${trip.fullName}"></td>
+                <td th:text="${trip.unit}"></td>
+                <td th:text="${trip.country}"></td>
+                <td th:text="${trip.tripPurpose}"></td>
+                <td th:text="${trip.jobTitle}"></td>
+                <td th:text="${trip.selfFunded} ? 'Yes' : 'No'"></td>
+                <td th:text="${trip.sponsor}"></td>
+                <td th:text="${trip.hospital}"></td>
+                <td th:text="${trip.hdBc}"></td>
+                <td th:text="${trip.invitationUnit}"></td>
+                <td th:text="${trip.doan}"></td>
+                <td th:text="${trip.partyMember}"></td>
+                <td th:text="${trip.foreignTripCount}"></td>
+                <td th:text="${trip.notificationNumber}"></td>
+                <td th:text="${trip.notificationDate}"></td>
+                <td th:text="${trip.city}"></td>
+                <td th:text="${trip.startDate}"></td>
+                <td th:text="${trip.endDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
