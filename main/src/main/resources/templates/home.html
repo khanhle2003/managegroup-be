@@ -1,0 +1,149 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<th:block th:insert="~{/_header_on}" th:if="${userdto.email}"></th:block>
+<th:block th:insert="~{/_header_off}" th:unless="${userdto.email}"></th:block>
+<div class="container mt-5">
+  <div class="row">
+    <!-- success message  -->
+    <div class="col-12 text-center">
+      <h2>Welcome to Home Page</h2>
+    </div>
+  </div>
+
+  <div class="row mt-4" th:unless="${userdto.email}">
+    <div class="col-12 text-center">
+      <h4>Tôi có thể giúp gì được cho bạn?</h4>
+      <p>Nếu bạn muốn sử dụng các tính năng dưới đây, xin mời bạn <a th:href="@{/login}">login</a> để sử dụng.</p>
+    </div>
+
+    <div class="row mt-4">
+      <!-- Search Demo -->
+      <div class="col-md-4">
+        <label for="searchDemo">Search (Demo)</label>
+        <input type="text" id="searchDemo" class="form-control" placeholder="Search disabled..." disabled>
+      </div>
+      <!-- Input Demo -->
+      <div class="col-md-4">
+        <label for="inputDemo">Enter Data (Demo)</label>
+        <input type="text" id="inputDemo" class="form-control" placeholder="Input disabled..." disabled>
+      </div>
+      <!-- Export Demo -->
+      <div class="col-md-4 d-flex align-items-end">
+        <button class="btn btn-secondary" disabled>Export to Excel (Demo)</button>
+      </div>
+    </div>
+
+    <!-- Date Range Demo -->
+    <div class="row mt-4">
+      <div class="col-md-5">
+        <label for="fromDateDemo">From Date (Demo)</label>
+        <input type="date" id="fromDateDemo" class="form-control" disabled>
+      </div>
+      <div class="col-md-5">
+        <label for="toDateDemo">To Date (Demo)</label>
+        <input type="date" id="toDateDemo" class="form-control" disabled>
+      </div>
+      <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-secondary" disabled>Filter (Demo)</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- Search and Input Section -->
+  <div th:if="${userdto.email}">
+  <div class="row mt-4">
+    <!-- Search -->
+    <div class="col-md-4">
+      <label for="search">Search</label>
+      <input type="text" id="search" class="form-control" placeholder="Search data...">
+    </div>
+
+    <!-- Input -->
+    <div class="col-md-4">
+      <label for="inputData">Enter Data</label>
+      <input type="text" id="inputData" class="form-control" placeholder="Input something...">
+    </div>
+
+    <!-- Export Button -->
+    <div class="col-md-4 d-flex align-items-end">
+      <button class="btn btn-success" onclick="exportExcel()">Export to Excel</button>
+    </div>
+  </div>
+
+  <!-- Date Range for Export -->
+  <div class="row mt-4">
+    <div class="col-md-5">
+      <label for="fromDate">From Date</label>
+      <input type="date" id="fromDate" class="form-control">
+    </div>
+    <div class="col-md-5">
+      <label for="toDate">To Date</label>
+      <input type="date" id="toDate" class="form-control">
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+      <button class="btn btn-primary" onclick="filterByDate()">Filter</button>
+    </div>
+  </div>
+  </div>
+
+
+
+<!--    <h1>Topics</h1>-->
+<!--    <table class="table table-striped table-success text-center" th:if="${topics.size() != 0}">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th class="col-md-1">Answers</th>-->
+<!--        <th class="col-md-4">Title</th>-->
+<!--        <th class="col-md-2">Author</th>-->
+<!--        <th class="col-md-2">Created</th>-->
+<!--        <th class="col-md-1">Enter</th>-->
+<!--        <th class="col-md-2">Action</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <th:block th:each="topic : ${topics}">-->
+<!--        <tr>-->
+<!--          <td th:text="${commentcount.countComment(topic.id)}">Number of answers</td>-->
+<!--          <td th:text="*{topic.title}">Topic's title</td>-->
+<!--          <td>-->
+<!--            &lt;!&ndash;                            <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">&ndash;&gt;-->
+<!--            <div class="chip" th:text="${topic.user.userDisplayName}">Topic's author</div>-->
+<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
+<!--          </td>-->
+<!--          <td th:text="*{topic.creationDate}">Topic's created date</td>-->
+<!--          <td>-->
+<!--            <a th:href="@{'/topic/' + ${topic.id}}" class="btn btn-floating pulse">-->
+<!--              <i class="bi bi-arrow-right-square-fill"></i>-->
+<!--            </a>-->
+<!--          </td>-->
+<!--          <td th:if="${userdto.email == topic.user.email}">-->
+<!--            <button class="btn btn-primary text-white" type="button">-->
+<!--              <a th:href="@{'/edit_topic/'+${topic.id}}" class="text-white">-->
+<!--                Edit-->
+<!--              </a>-->
+<!--            </button>-->
+<!--            <button class="btn btn-danger" type="button">-->
+<!--              <a th:href="@{'/deletetopic/'+${topic.id}}" class="text-white" method=RequestMethod.GET>-->
+<!--                Delete-->
+<!--              </a>-->
+<!--            </button>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--      </th:block>-->
+<!--      </tbody>-->
+<!--    </table>-->
+
+</div>
+</body>
+</html>

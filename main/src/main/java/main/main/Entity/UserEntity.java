@@ -1,54 +1,59 @@
 package main.main.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "dtb1")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserEntity {
     @Id
-    private Long id; // Không dùng AUTO_INCREMENT theo yêu cầu
+    @Column(name ="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private String username;
+    @Column(name = "email", nullable = false)
+    private String email;
 
-    private String password;
+    @Column(name = "user_display_name", nullable = false)
+    private String UserDisplayName;
 
-    // Constructors
-    public UserEntity() {}
+    @Column(name = "about_me", nullable = true)
+    private String AboutMe;
 
-    public UserEntity(Long id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
+    @Column(name = "views", nullable = false)
+    private int Views;
+
+    @Column(name = "topic_counts", nullable = false)
+    private int TopicCounts;
+
+    @Column(name = "Password", nullable = false)
+    private String Password;
+
+    @Column(name = "creation_date", nullable = false)
+    private String CreationDate;
+
+    @Column(name = "role", nullable = false)
+    private String Role;
+
+
+    public UserEntity(String Email, String userDisplayName, String aboutMe, int views,int topicCounts, String password, String creationDate, String role){
+        email = Email;
+        UserDisplayName = userDisplayName;
+        AboutMe = aboutMe;
+        Views = views;
+        TopicCounts = topicCounts;
+        Password = password;
+        CreationDate = creationDate;
+        Role = role;
     }
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+//    public String getCheckPass() {
+//    }
 }
