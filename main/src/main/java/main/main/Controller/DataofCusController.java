@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -16,9 +17,9 @@ public class DataofCusController {
     private DataofCusService dataofCusService;
 
     @GetMapping("/trips")
-    public String showTrips(Model model) {
+    @ResponseBody
+    public List<DataofCusEntity> showTrips(Model model) {
         List<DataofCusEntity> DataofCus = dataofCusService.getAllTrips();
-        model.addAttribute("trips", DataofCus);
-        return "trips"; // Tên của file template Thymeleaf
+        return DataofCus; 
     }
 }
