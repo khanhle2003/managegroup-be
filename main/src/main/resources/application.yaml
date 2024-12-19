@@ -1,16 +1,16 @@
 server:
   port: 8080
   servlet:
-    context-path: /main
+    context-path:
 
 
 
     
 spring:
   datasource:
-    url: "jdbc:mysql://localhost:3306/new_schema"
+    url: "jdbc:mysql://localhost:3306/qldoan"
     username: root
-    password: Khoa@2003
+    password: root
   jpa:
     hibernate:
       ddl-auto: update

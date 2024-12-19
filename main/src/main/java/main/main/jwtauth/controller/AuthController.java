@@ -41,11 +41,14 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         try {
+            // Authenticate the user
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String jwt = jwtUtils.generateToken(userDetails);
-            System.out.println(jwt);
+
+            // Retrieve the authenticated user and generate JWT
+            User authenticatedUser = userService.findByUsername(user.getUsername()).orElseThrow(() -> new AuthenticationException("Invalid credentials") {});
+            String jwt = jwtUtils.generateToken(authenticatedUser);
+
             return ResponseEntity.ok(jwt);
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body("Invalid username or password");
