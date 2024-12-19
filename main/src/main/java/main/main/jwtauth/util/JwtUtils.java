@@ -3,6 +3,7 @@ package main.main.jwtauth.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import main.main.jwtauth.model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -36,13 +37,18 @@ public class JwtUtils {
         return extractExpiration(token).before(new Date());
     }
 
-    public String generateToken(UserDetails userDetails) {
-        return createToken(userDetails.getUsername());
+    public String generateToken(User user) {
+        return createToken(user);
     }
 
-    private String createToken(String subject) {
+    private String createToken(User user) {
+        Claims claims = Jwts.claims();
+        claims.put("username", user.getUsername()); // Thêm username
+        claims.put("email", user.getEmail());
+
         return Jwts.builder()
-                .setSubject(subject)
+                .setClaims(claims)
+                .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
                 .signWith(SignatureAlgorithm.HS256, secret)

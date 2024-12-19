@@ -12,10 +12,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
     private final AuthenticationManager authenticationManager;
@@ -27,6 +28,14 @@ public class AuthController {
         this.authenticationManager = authenticationManager;
         this.userService = userService;
         this.jwtUtils = jwtUtils;
+    }
+    @Controller
+    public class LoginController {
+
+        @GetMapping("/login")
+        public String showLoginForm() {
+            return "login"; // The name of the HTML file in the templates folder
+        }
     }
 
     @PostMapping("/register")
@@ -41,11 +50,14 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         try {
+            // Authenticate the user
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String jwt = jwtUtils.generateToken(userDetails);
-            System.out.println(jwt);
+
+            // Retrieve the authenticated user and generate JWT
+            User authenticatedUser = userService.findByUsername(user.getUsername()).orElseThrow(() -> new AuthenticationException("Invalid credentials") {});
+            String jwt = jwtUtils.generateToken(authenticatedUser);
+
             return ResponseEntity.ok(jwt);
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body("Invalid username or password");
