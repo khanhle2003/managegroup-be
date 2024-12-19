@@ -2,7 +2,7 @@ package main.main.AddData.controller;
 
 import main.main.AddData.dto.request.AddDataDto;
 import main.main.AddData.entity.Data;
-import main.main.AddData.service.DataAddService;
+import main.main.AddData.service2.DataAddService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

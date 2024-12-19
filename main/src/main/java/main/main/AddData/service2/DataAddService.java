@@ -1,4 +1,4 @@
-package main.main.AddData.service;
+package main.main.AddData.service2;
 
 import main.main.AddData.dto.request.AddDataDto;
 import main.main.AddData.entity.Data;
