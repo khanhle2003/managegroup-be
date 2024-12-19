@@ -11,10 +11,6 @@ public class MainApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
 	}
-//@RequestMapping("/hello")
-//public String hl(){
-//	return "123";
-//	}
 }
 
 
