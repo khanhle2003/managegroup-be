@@ -16,7 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping()
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
     private final AuthenticationManager authenticationManager;
@@ -32,13 +32,13 @@ public class AuthController {
     @Controller
     public class LoginController {
 
-        @GetMapping("/login")
+        @GetMapping("/auth/login")
         public String showLoginForm() {
             return "login"; // The name of the HTML file in the templates folder
         }
     }
 
-    @PostMapping("/register")
+    @PostMapping("/auth/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         if (userService.findByUsername(user.getUsername()).isPresent()) {
             return ResponseEntity.badRequest().body("Username is already taken");
@@ -47,7 +47,7 @@ public class AuthController {
         return ResponseEntity.ok("User registered successfully");
     }
 
-    @PostMapping("/login")
+    @PostMapping("/auth/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         try {
             // Authenticate the user
