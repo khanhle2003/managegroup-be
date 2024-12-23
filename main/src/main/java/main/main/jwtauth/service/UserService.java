@@ -1,16 +1,18 @@
 package main.main.jwtauth.service;
 
-import main.main.jwtauth.model.User;
-import main.main.jwtauth.repository.UserRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import main.main.jwtauth.model.User;
+import main.main.jwtauth.repository.UserRepository;
 
 
 @Service
@@ -44,5 +46,9 @@ public class UserService implements UserDetailsService{
                 .password(user.getPassword())
                 .authorities("USER")
                 .build();
+    }
+
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
     }
 }
