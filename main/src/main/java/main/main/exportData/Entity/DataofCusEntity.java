@@ -1,4 +1,4 @@
-package main.main.Entity;
+package main.main.exportData.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

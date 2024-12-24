@@ -1,7 +1,8 @@
-package main.main.Repo;
+package main.main.exportData.Repo;
 
-import main.main.Entity.DataofCusEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import main.main.exportData.Entity.DataofCusEntity;
 
 public interface DataofCusRepo extends JpaRepository<DataofCusEntity, Long> {
 }
