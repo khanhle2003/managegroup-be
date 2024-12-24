@@ -17,7 +17,7 @@ public class DataofCusController {
     @Autowired
     private DataofCusService dataofCusService;
 
-    @GetMapping("/trips")
+    @GetMapping("/datas")
     @ResponseBody
     public List<DataofCusEntity> showTrips(Model model) {
         List<DataofCusEntity> DataofCus = dataofCusService.getAllTrips();
