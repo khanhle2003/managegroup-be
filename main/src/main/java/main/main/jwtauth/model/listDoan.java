@@ -1,74 +1,71 @@
-package main.main.exportData.Entity;
+package main.main.jwtauth.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import lombok.Data;
-import jakarta.persistence.Column;
-
 import java.util.Date;
-@Data
-
 @Entity
 @Table(name = "data")
-public class DataofCusEntity {
-    @Id
-    private Long id; 
+public class listDoan {
 
-    @Column(name = "FullName")
-    private String fullName;
+        @Id
+        private Long id;
 
-    @Column(name = "Unit")
-    private String unit;
+        @Column(name = "FullName")
+        private String fullName;
 
-    @Column(name = "Country")
-    private String country;
+        @Column(name = "Unit")
+        private String unit;
 
-    @Column(name = "TripPurpose")
-    private String tripPurpose;
+        @Column(name = "Country")
+        private String country;
 
-    @Column(name = "JobTitle")
-    private String jobTitle;
+        @Column(name = "TripPurpose")
+        private String tripPurpose;
 
-    @Column(name = "SelfFunded")
-    private String selfFunded;
+        @Column(name = "JobTitle")
+        private String jobTitle;
 
-    @Column(name = "Sponsor")
-    private String sponsor;
+        @Column(name = "SelfFunded")
+        private String selfFunded;
 
-    @Column(name = "Hospital")
-    private String hospital;
+        @Column(name = "Sponsor")
+        private String sponsor;
 
-    @Column(name = "HD/BC")
-    private String hdBc;
+        @Column(name = "Hospital")
+        private String hospital;
 
-    @Column(name = "InvitationUnit")
-    private String invitationUnit;
+        @Column(name = "HD/BC")
+        private String hdBc;
 
-    @Column(name = "Doan")
-    private String doan;
+        @Column(name = "InvitationUnit")
+        private String invitationUnit;
 
-    @Column(name = "PartyMember")
-    private String partyMember;
+        @Column(name = "Doan")
+        private String doan;
 
-    @Column(name = "ForeignTripCount")
-    private String foreignTripCount;
+        @Column(name = "PartyMember")
+        private String partyMember;
 
-    @Column(name = "NotificationNumber")
-    private String notificationNumber;
+        @Column(name = "ForeignTripCount")
+        private String foreignTripCount;
 
-    @Column(name = "NotificationDate")
-    private String notificationDate;
+        @Column(name = "NotificationNumber")
+        private String notificationNumber;
 
-    @Column(name = "city")
-    private String city;
+        @Column(name = "NotificationDate")
+        private String notificationDate;
 
-    @Column(name = "StartDate")
-    private Date startDate;
+        @Column(name = "city")
+        private String city;
 
-    @Column(name = "EndDate")
-    private Date endDate;
+        @Column(name = "StartDate")
+        private Date startDate;
+
+        @Column(name = "EndDate")
+        private Date endDate;
 
     public Long getId() {
         return id;
