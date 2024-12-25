@@ -22,7 +22,7 @@ public class AddDataDto {
     private String hospital;
     private String invitationUnit;
     private String partyMember;
-    private int foreignTripCount;
+    private String foreignTripCount;
     private LocalDate startDate;
     private LocalDate endDate;
 }

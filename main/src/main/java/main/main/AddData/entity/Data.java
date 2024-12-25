@@ -41,7 +41,7 @@ public class Data {
     @Column(name = "PartyMember")
     private String PartyMember;
     @Column(name = "ForeignTripCount")
-    private int ForeignTripCount;
+    private String ForeignTripCount;
     @Column(name = "StartDate")
     private LocalDate StartDate;
     @Column(name = "EndDate")

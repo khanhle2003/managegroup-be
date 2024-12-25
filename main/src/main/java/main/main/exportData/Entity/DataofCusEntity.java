@@ -40,7 +40,7 @@ public class DataofCusEntity {
     @Column(name = "Hospital")
     private String hospital;
 
-    @Column(name = "HD/BC")
+    @Column(name = "hd_bc")
     private String hdBc;
 
     @Column(name = "InvitationUnit")
