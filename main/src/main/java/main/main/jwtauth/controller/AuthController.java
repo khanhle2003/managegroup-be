@@ -29,14 +29,14 @@ public class AuthController {
         this.userService = userService;
         this.jwtUtils = jwtUtils;
     }
-    @Controller
-    public class LoginController {
+    // @Controller
+    // public class LoginController {
 
-        @GetMapping("/auth/login")
-        public String showLoginForm() {
-            return "login"; // The name of the HTML file in the templates folder
-        }
-    }
+    //     @GetMapping("/auth/login")
+    //     public String showLoginForm() {
+    //         return "login"; // The name of the HTML file in the templates folder
+    //     }
+    // }
 
     @PostMapping("/auth/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
