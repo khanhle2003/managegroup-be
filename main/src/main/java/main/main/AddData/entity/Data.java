@@ -1,5 +1,7 @@
 package main.main.AddData.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,8 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "data")
@@ -42,6 +42,10 @@ public class Data {
     private String PartyMember;
     @Column(name = "ForeignTripCount")
     private String ForeignTripCount;
+    @Column(name="NotificationNumber")
+    private String notificationNumber;
+    @Column(name="NotificationDate")
+    private LocalDate notificationDate;
     @Column(name = "StartDate")
     private LocalDate StartDate;
     @Column(name = "EndDate")

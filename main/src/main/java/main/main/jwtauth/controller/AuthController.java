@@ -1,19 +1,21 @@
 package main.main.jwtauth.controller;
 
 
-import main.main.jwtauth.model.User;
-import main.main.jwtauth.service.UserService;
-import main.main.jwtauth.util.JwtUtils;
-
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import main.main.jwtauth.model.User;
+import main.main.jwtauth.service.UserService;
+import main.main.jwtauth.util.JwtUtils;
 
 @RestController
 @RequestMapping()
@@ -29,14 +31,6 @@ public class AuthController {
         this.userService = userService;
         this.jwtUtils = jwtUtils;
     }
-    @Controller
-    public class LoginController {
-
-        @GetMapping("/auth/login")
-        public String showLoginForm() {
-            return "login"; // The name of the HTML file in the templates folder
-        }
-    }
 
     @PostMapping("/auth/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
@@ -44,7 +38,7 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Username is already taken");
         }
         userService.saveUser(user);
-        return ResponseEntity.ok("User registered successfully");
+        return ResponseEntity.ok("Đăng kí thành công");
     }
 
     @PostMapping("/auth/login")

@@ -1,12 +1,13 @@
 package main.main.AddData.service2;
 
-import main.main.AddData.dto.request.AddDataDto;
-import main.main.AddData.entity.Data;
-import main.main.AddData.repo.DataRepo;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import main.main.AddData.dto.request.AddDataDto;
+import main.main.AddData.entity.Data;
+import main.main.AddData.repo.DataRepo;
 @Service
 public class DataAddService {
     @Autowired
@@ -31,6 +32,8 @@ public class DataAddService {
         data.setForeignTripCount(request.getForeignTripCount());
         data.setStartDate(request.getStartDate());
         data.setEndDate(request.getEndDate());
+        data.setNotificationDate(request.getNotificationDate());
+        data.setNotificationNumber(request.getNotificationNumber());
 
         return (Data) dataRepository.save(data);
     }

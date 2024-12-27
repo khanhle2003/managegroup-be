@@ -1,11 +1,11 @@
 package main.main.AddData.dto.request;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -25,4 +25,6 @@ public class AddDataDto {
     private String foreignTripCount;
     private LocalDate startDate;
     private LocalDate endDate;
+    private LocalDate notificationDate;
+    private String notificationNumber;
 }
