@@ -21,7 +21,8 @@ public class UserController {
     @GetMapping("/download")
     public ResponseEntity<ByteArrayResource> downloadUserList() throws IOException {
         // Đọc file template DOCX
-        try (XWPFDocument document = new XWPFDocument(new FileInputStream("C:\\Users\\Admin\\Desktop\\New folder (4)\\managegroup-be-main\\main\\src\\main\\resources\\templates\\don_xin_di_nuoc_ngoai_test.docx"))) {
+        try (XWPFDocument document = new XWPFDocument(new FileInputStream("main\\src\\main\\resources\\templates\\don_xin_di_nuoc_ngoai_test.docx"))) {
+        
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             document.write(outputStream);
             ByteArrayResource resource = new ByteArrayResource(outputStream.toByteArray());
