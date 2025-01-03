@@ -15,8 +15,8 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "data")
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Data {
@@ -53,4 +53,10 @@ public class Data {
     private LocalDate StartDate;
     @Column(name = "EndDate")
     private LocalDate EndDate;
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "gender")
+    private String gender;
 }
