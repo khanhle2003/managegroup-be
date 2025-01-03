@@ -27,4 +27,7 @@ public class AddDataDto {
     private LocalDate endDate;
     private LocalDate notificationDate;
     private String notificationNumber;
+    private String email;
+    private String gender;
+    private String phoneNumber;
 }

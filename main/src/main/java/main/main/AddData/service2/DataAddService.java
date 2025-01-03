@@ -34,7 +34,9 @@ public class DataAddService {
         data.setEndDate(request.getEndDate());
         data.setNotificationDate(request.getNotificationDate());
         data.setNotificationNumber(request.getNotificationNumber());
-
+        data.setGender(request.getGender());
+        data.setEmail(request.getEmail());
+        data.setPhoneNumber(request.getPhoneNumber());
         return (Data) dataRepository.save(data);
     }
 }
