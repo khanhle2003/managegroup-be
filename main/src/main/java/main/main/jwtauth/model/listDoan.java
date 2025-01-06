@@ -41,7 +41,7 @@ public class listDoan {
     @Column(name = "Hospital")
     private String hospital;
 
-    @Column(name = "HD/BC")
+    @Column(name = "hd_bc")
     private String hdBc;
 
     @Column(name = "InvitationUnit")
@@ -76,9 +76,6 @@ public class listDoan {
 
     @Column(name = "Gender")
     private String gender;
-
-    @Column(name = "Position")
-    private String position;
 
     @Column(name = "PhoneNumber")
     private String phoneNumber;
@@ -251,13 +248,6 @@ public class listDoan {
         this.gender = gender;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
 
     public String getEmail() {
         return email;
