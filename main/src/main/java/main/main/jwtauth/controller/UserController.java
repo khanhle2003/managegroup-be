@@ -43,43 +43,44 @@ public class UserController {
         // Thêm log để kiểm tra dữ liệu
         System.out.println("User data:");
         System.out.println("ID: " + trip.getId());
-        System.out.println("Full Name: " + trip.getFullName());
-        System.out.println("Birth Date: " + trip.getBirthDate());
-        System.out.println("Gender: " + trip.getGender());
-        System.out.println("Position: " + trip.getPosition());
-        // System.out.println("Leaving Count: " + trip.getLeavingCount());
+        System.out.println("fullName: " + trip.getFullName());
+        System.out.println("birthDate: " + trip.getBirthDate());
+        System.out.println("gender: " + trip.getGender());
+        System.out.println("partyMember: " + trip.getPartyMember());
+        System.out.println("jobTitle: " + trip.getJobTitle());
+        System.out.println("unit: " + trip.getUnit());
+        System.out.println("phoneNumber: " + trip.getPhoneNumber());
+        System.out.println("email: " + trip.getEmail());
+        System.out.println("country: " + trip.getCountry());
+        System.out.println("sponsor: " + trip.getSponsor());
+        System.out.println("startDate: " + trip.getStartDate());
+        System.out.println("endDate: " + trip.getEndDate());
+        System.out.println("tripPurpose: " + trip.getTripPurpose());
+        System.out.println("selfFunded: " + trip.getSelfFunded());
+        System.out.println("hospital: " + trip.getHospital());
+        System.out.println("foreignTripCount: " + trip.getForeignTripCount());
 
+        // truy cập vào database
         Map<String, String> data = new HashMap<>();
         data.put("fullName", trip.getFullName() != null ? trip.getFullName() : "");
         data.put("birthDate", trip.getBirthDate() != null ? trip.getBirthDate() : "");
         data.put("gender", trip.getGender() != null ? trip.getGender() : "");
-        data.put("position", trip.getPosition() != null ? trip.getPosition() : "");
-
-        // data.put("isMember", trip.getIsMember() != null ? trip.getIsMember() : "");
-        // data.put("partyBranch", trip.getPartyBranch() != null ? trip.getPartyBranch() : "");
-        // data.put("contractCheckbox", trip.getContractCheckbox() != null ? trip.getContractCheckbox() : "");
-        // data.put("officialCheckbox", trip.getOfficialCheckbox() != null ? trip.getOfficialCheckbox() : "");
-        // data.put("jobDescribtion", trip.getJobDescribtion() != null ? trip.getJobDescribtion() : "");
+        data.put("partyMember", trip.getPartyMember() != null ? trip.getPartyMember() : "");
         data.put("jobTitle", trip.getJobTitle() != null ? trip.getJobTitle() : "");
-        // data.put("jobUnit", trip.getJobUnit() != null ? trip.getJobUnit() : "");
-
-        // data.put("phoneNumber", trip.getPhoneNumber() != null ? trip.getPhoneNumber() : "");
-        // data.put("email", trip.getEmail() != null ? trip.getEmail() : "");
+        data.put("unit", trip.getUnit() != null ? trip.getUnit() : "");
+        data.put("phoneNumber", trip.getPhoneNumber() != null ? trip.getPhoneNumber() : "");
+        data.put("email", trip.getEmail() != null ? trip.getEmail() : "");
         data.put("country", trip.getCountry() != null ? trip.getCountry() : "");
-        data.put("invitationUnit", trip.getInvitationUnit() != null ? trip.getInvitationUnit() : "");
-        // data.put("startDate", trip.getStartDate() != null ? trip.getStartDate() : "");
-        // data.put("endDate", trip.getEndDate() != null ? trip.getEndDate() : "");
+        data.put("sponsor", trip.getSponsor() != null ? trip.getSponsor() : "");
+        data.put("startDate", trip.getStartDate() != null ? trip.getStartDate().toString() : "");
+        data.put("endDate", trip.getEndDate() != null ? trip.getEndDate().toString() : "");
         data.put("tripPurpose", trip.getTripPurpose() != null ? trip.getTripPurpose() : "");
-        // data.put("purposeDetail", trip.getPurposeDetail() != null ? trip.getPurposeDetail() : "");
-        // data.put("invitationCheckbox", trip.getInvitationCheckbox() != null ? trip.getInvitationCheckbox() : "");
-        // data.put("selfFundedCheckbox", trip.getSelfFundedCheckbox() != null ? trip.getSelfFundedCheckbox() : "");
-        // data.put("hospitalCheckbox", trip.getHospitalCheckbox() != null ? trip.getHospitalCheckbox() : "");
+        data.put("selfFunded", trip.getSelfFunded() != null ? trip.getSelfFunded() : "");
+        data.put("hospital", trip.getHospital() != null ? trip.getHospital() : "");
         data.put("foreignTripCount", trip.getForeignTripCount() != null ? trip.getForeignTripCount() : "");
-        // data.put("leavingCount", trip.getLeavingCount() != null ? trip.getLeavingCount() : "");
-        // data.put("alternative", trip.getAlternative() != null ? trip.getAlternative() : "");
 
         // Tải file Word mẫu
-        ClassPathResource template = new ClassPathResource("templates/don_xin_di_nuoc_ngoai_test.docx");
+        ClassPathResource template = new ClassPathResource("templates/don_xin_di_nuoc_ngoai.docx");
         XWPFDocument document;
         try (FileInputStream fis = new FileInputStream(template.getFile())) {
             document = new XWPFDocument(fis);
@@ -88,26 +89,21 @@ public class UserController {
         // Thay thế các placeholder
         for (XWPFParagraph paragraph : document.getParagraphs()) {
             List<XWPFRun> runs = paragraph.getRuns();
-            for (int i = 0; i < runs.size(); i++) {
-                String text = runs.get(i).getText(0);
+            for (XWPFRun run : runs) {
+                String text = run.getText(0);
                 if (text != null) {
-                    // Kiểm tra và thay thế placeholder trong mỗi run
                     for (Map.Entry<String, String> entry : data.entrySet()) {
                         String key = "{" + entry.getKey() + "}";
                         if (text.contains(key)) {
-                            // In ra thông tin
-                            System.out.println("Found placeholder: " + key);
-                            System.out.println("Replacing with value: " + entry.getValue());
-
                             text = text.replace(key, entry.getValue());
-                            runs.get(i).setText(text, 0);
+                            run.setText(text, 0);
                         }
                     }
                 }
             }
         }
 
-        // Xuất file Word ra byte array
+        // Xuất file Word 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         document.write(outputStream);
         document.close();
