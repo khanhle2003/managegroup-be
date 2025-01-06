@@ -3,40 +3,80 @@ package main.main.jwtauth.controller;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import main.main.jwtauth.model.listDoan;
+import main.main.jwtauth.repository.UserRepository;
+import main.main.jwtauth.repository.listDoanRepo;
 
 @Controller
 @RequestMapping("/users")
 @CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true")
 public class UserController {
 
-    @PostMapping("/export")
-    public ResponseEntity<byte[]> exportWord(
-            @RequestParam String fullName,
-            @RequestParam String birthDate,
-            @RequestParam String gender,
-            @RequestParam String position) throws IOException {
+    @Autowired
+    private UserRepository userRepository;
 
-        // Tạo một Map để lưu trữ dữ liệu từ form
+    @Autowired
+    private listDoanRepo listDoanRepo;
+
+    @GetMapping("/export/{id}")
+    public ResponseEntity<byte[]> exportWord(@PathVariable Long id) throws IOException {
+        //in thông báo user not found nếu không tìm thấy id
+        listDoan trip = listDoanRepo.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Thêm log để kiểm tra dữ liệu
+        System.out.println("User data:");
+        System.out.println("ID: " + trip.getId());
+        System.out.println("Full Name: " + trip.getFullName());
+        System.out.println("Birth Date: " + trip.getBirthDate());
+        System.out.println("Gender: " + trip.getGender());
+        System.out.println("Position: " + trip.getPosition());
+        // System.out.println("Leaving Count: " + trip.getLeavingCount());
+
         Map<String, String> data = new HashMap<>();
-        data.put("fullName", fullName);
-        data.put("birthDate", birthDate);
-        data.put("gender", gender);
-        data.put("position", position);
+        data.put("fullName", trip.getFullName() != null ? trip.getFullName() : "");
+        data.put("birthDate", trip.getBirthDate() != null ? trip.getBirthDate() : "");
+        data.put("gender", trip.getGender() != null ? trip.getGender() : "");
+        data.put("position", trip.getPosition() != null ? trip.getPosition() : "");
+
+        // data.put("isMember", trip.getIsMember() != null ? trip.getIsMember() : "");
+        // data.put("partyBranch", trip.getPartyBranch() != null ? trip.getPartyBranch() : "");
+        // data.put("contractCheckbox", trip.getContractCheckbox() != null ? trip.getContractCheckbox() : "");
+        // data.put("officialCheckbox", trip.getOfficialCheckbox() != null ? trip.getOfficialCheckbox() : "");
+        // data.put("jobDescribtion", trip.getJobDescribtion() != null ? trip.getJobDescribtion() : "");
+        data.put("jobTitle", trip.getJobTitle() != null ? trip.getJobTitle() : "");
+        // data.put("jobUnit", trip.getJobUnit() != null ? trip.getJobUnit() : "");
+
+        // data.put("phoneNumber", trip.getPhoneNumber() != null ? trip.getPhoneNumber() : "");
+        // data.put("email", trip.getEmail() != null ? trip.getEmail() : "");
+        data.put("country", trip.getCountry() != null ? trip.getCountry() : "");
+        data.put("invitationUnit", trip.getInvitationUnit() != null ? trip.getInvitationUnit() : "");
+        // data.put("startDate", trip.getStartDate() != null ? trip.getStartDate() : "");
+        // data.put("endDate", trip.getEndDate() != null ? trip.getEndDate() : "");
+        data.put("tripPurpose", trip.getTripPurpose() != null ? trip.getTripPurpose() : "");
+        // data.put("purposeDetail", trip.getPurposeDetail() != null ? trip.getPurposeDetail() : "");
+        // data.put("invitationCheckbox", trip.getInvitationCheckbox() != null ? trip.getInvitationCheckbox() : "");
+        // data.put("selfFundedCheckbox", trip.getSelfFundedCheckbox() != null ? trip.getSelfFundedCheckbox() : "");
+        // data.put("hospitalCheckbox", trip.getHospitalCheckbox() != null ? trip.getHospitalCheckbox() : "");
+        data.put("foreignTripCount", trip.getForeignTripCount() != null ? trip.getForeignTripCount() : "");
+        // data.put("leavingCount", trip.getLeavingCount() != null ? trip.getLeavingCount() : "");
+        // data.put("alternative", trip.getAlternative() != null ? trip.getAlternative() : "");
 
         // Tải file Word mẫu
         ClassPathResource template = new ClassPathResource("templates/don_xin_di_nuoc_ngoai_test.docx");
@@ -45,15 +85,23 @@ public class UserController {
             document = new XWPFDocument(fis);
         }
 
-        // Thay thế các placeholder trong Word bằng dữ liệu từ form
+        // Thay thế các placeholder
         for (XWPFParagraph paragraph : document.getParagraphs()) {
-            String paragraphText = paragraph.getText();
-            for (Map.Entry<String, String> entry : data.entrySet()) {
-                String placeholder = "{" + entry.getKey() + "}";
-                if (paragraphText.contains(placeholder)) {
-                    String updatedText = paragraphText.replace(placeholder, entry.getValue());
-                    for (XWPFRun run : paragraph.getRuns()) {
-                        run.setText(updatedText, 0);
+            List<XWPFRun> runs = paragraph.getRuns();
+            for (int i = 0; i < runs.size(); i++) {
+                String text = runs.get(i).getText(0);
+                if (text != null) {
+                    // Kiểm tra và thay thế placeholder trong mỗi run
+                    for (Map.Entry<String, String> entry : data.entrySet()) {
+                        String key = "{" + entry.getKey() + "}";
+                        if (text.contains(key)) {
+                            // In ra thông tin
+                            System.out.println("Found placeholder: " + key);
+                            System.out.println("Replacing with value: " + entry.getValue());
+
+                            text = text.replace(key, entry.getValue());
+                            runs.get(i).setText(text, 0);
+                        }
                     }
                 }
             }
