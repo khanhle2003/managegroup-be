@@ -29,5 +29,6 @@ public class AddDataDto {
     private String notificationNumber;
     private String email;
     private String gender;
-    private String phoneNumber;
+    private String phoneNumber;  
+     private String hdbc;
 }

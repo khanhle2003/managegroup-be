@@ -1,4 +1,3 @@
-
 package main.main.exportData.Controller;
 
 import java.io.ByteArrayOutputStream;
@@ -61,6 +60,10 @@ public class ExportSXSSFController {
             headerRow.createCell(15).setCellValue("Thành phố");
             headerRow.createCell(16).setCellValue("Ngày bắt đầu");
             headerRow.createCell(17).setCellValue("Ngày kết thúc");
+            headerRow.createCell(18).setCellValue("Email");
+            headerRow.createCell(19).setCellValue("Giới tính");
+            headerRow.createCell(20).setCellValue("Số điện thoại");
+            
     
             // Style cho ngày tháng
             CellStyle dateStyle = workbook.createCellStyle();
@@ -99,10 +102,14 @@ public class ExportSXSSFController {
                     endDateCell.setCellValue(data.getEndDate());
                     endDateCell.setCellStyle(dateStyle);
                 }
+    
+                row.createCell(18).setCellValue(data.getEmail());
+                row.createCell(19).setCellValue(data.getGender());
+                row.createCell(20).setCellValue(data.getPhoneNumber());
             }
     
             // Auto size các cột
-            for (int i = 0; i < 18; i++) {
+            for (int i = 0; i < 21; i++) {
                 sheet.autoSizeColumn(i);
             }
     

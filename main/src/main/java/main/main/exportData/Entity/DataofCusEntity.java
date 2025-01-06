@@ -70,6 +70,14 @@ public class DataofCusEntity {
     @Column(name = "EndDate")
     private Date endDate;
 
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "Gender")
+    private String gender;
+
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
     public Long getId() {
         return id;
     }
@@ -220,5 +228,29 @@ public class DataofCusEntity {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
