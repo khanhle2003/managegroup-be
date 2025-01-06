@@ -59,4 +59,6 @@ public class Data {
     private String email;
     @Column(name = "gender")
     private String gender;
+    @Column(name = "HD/BC")
+    private String hdbc;
 }
