@@ -20,6 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Data {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -45,9 +46,9 @@ public class Data {
     private String PartyMember;
     @Column(name = "ForeignTripCount")
     private String ForeignTripCount;
-    @Column(name="NotificationNumber")
+    @Column(name = "NotificationNumber")
     private String notificationNumber;
-    @Column(name="NotificationDate")
+    @Column(name = "NotificationDate")
     private LocalDate notificationDate;
     @Column(name = "StartDate")
     private LocalDate StartDate;
@@ -59,6 +60,21 @@ public class Data {
     private String email;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "hd_bc")
-    private String hdbc;
+    @Column(name = "Position")
+    private String position;
+    @Column(name = "PartyBranch")
+    private String partyBranch;
+    @Column(name = "PartyPosition")
+    private String party_position;
+    @Column(name = "Employee")
+    private String employee;
+    @Column(name = "JobName")
+    private String jobName;
+    @Column(name = "RestCount")
+    private String restCount;
+    @Column(name = "Alternative")
+    private String alternative;
+    @Column(name = "SubmitDay")
+    private String submitDay;
+
 }

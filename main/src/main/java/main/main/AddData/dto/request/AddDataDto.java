@@ -12,6 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddDataDto {
+
     private String fullname;
     private String unit;
     private String country;
@@ -29,6 +30,13 @@ public class AddDataDto {
     private String notificationNumber;
     private String email;
     private String gender;
-    private String phoneNumber;  
-     private String hdbc;
+    private String phoneNumber;
+    private String position;
+    private String partyBranch;
+    private String party_position;
+    private String employee;
+    private String jobName;
+    private String restCount;
+    private String alternative;
+    private String submitDay;
 }
