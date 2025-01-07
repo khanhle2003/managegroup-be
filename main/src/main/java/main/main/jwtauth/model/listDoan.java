@@ -41,7 +41,7 @@ public class listDoan {
     @Column(name = "Hospital")
     private String hospital;
 
-    @Column(name = "hd_bc")
+    @Column(name = "HD/BC")
     private String hdBc;
 
     @Column(name = "InvitationUnit")
@@ -65,7 +65,6 @@ public class listDoan {
     @Column(name = "city")
     private String city;
 
-
     @Column(name = "StartDate")
     private Date startDate;
 
@@ -78,8 +77,35 @@ public class listDoan {
     @Column(name = "Gender")
     private String gender;
 
+    @Column(name = "Position")
+    private String position;
+
     @Column(name = "PhoneNumber")
     private String phoneNumber;
+
+    @Column(name = "PartyBranch")
+    private String party_branch;
+
+    @Column(name = "PartyPosition")
+    private String party_position;
+
+    @Column(name = "Contract")
+    private String contract;
+
+    @Column(name = "Official")
+    private String official;
+
+    @Column(name = "JobName")
+    private String job_name;
+
+    @Column(name = "RestCount")
+    private String rest_count;
+
+    @Column(name = "Alternative")
+    private String alternative;
+
+    @Column(name = "SubmitDay")
+    private String submit_day;
 
     public Long getId() {
         return id;
@@ -249,6 +275,13 @@ public class listDoan {
         this.gender = gender;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public String getEmail() {
         return email;
@@ -264,5 +297,69 @@ public class listDoan {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getPartyBranch() {
+        return party_branch;
+    }
+
+    public void setPartyBranch(String party_branch) {
+        this.party_branch = party_branch;
+    }
+
+    public String getPartyPosition() {
+        return party_position;
+    }
+
+    public void setPartyPosition(String party_position) {
+        this.party_position = party_position;
+    }
+
+    public String getContract() {
+        return contract;
+    }
+
+    public void setContract(String contract) {
+        this.contract = contract;
+    }
+
+    public String getOfficial() {
+        return official;
+    }
+
+    public void setOfficial(String official) {
+        this.official = official;
+    }
+
+    public String getJobName() {
+        return job_name;
+    }
+
+    public void setJobName(String job_name) {
+        this.job_name = job_name;
+    }
+
+    public String getRestCount() {
+        return rest_count;
+    }
+
+    public void setRestCount(String rest_count) {
+        this.rest_count = rest_count;
+    }
+
+    public String getAlternative() {
+        return alternative;
+    }
+
+    public void setAlternative(String alternative) {
+        this.alternative = alternative;
+    }
+
+    public String getSubmitDay() {
+        return submit_day;
+    }
+
+    public void setSubmitDay(String submit_day) {
+        this.submit_day = submit_day;
     }
 }
