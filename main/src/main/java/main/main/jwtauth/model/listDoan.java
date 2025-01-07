@@ -1,71 +1,108 @@
 package main.main.jwtauth.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import java.util.Date;
 @Entity
 @Table(name = "data")
 public class listDoan {
 
-        @Id
-        private Long id;
+    @Id
+    private Long id;
 
-        @Column(name = "FullName")
-        private String fullName;
+    @Column(name = "FullName")
+    private String fullName;
 
-        @Column(name = "Unit")
-        private String unit;
+    @Column(name = "Unit")
+    private String unit;
 
-        @Column(name = "Country")
-        private String country;
+    @Column(name = "Country")
+    private String country;
 
-        @Column(name = "TripPurpose")
-        private String tripPurpose;
+    @Column(name = "TripPurpose")
+    private String tripPurpose;
 
-        @Column(name = "JobTitle")
-        private String jobTitle;
+    @Column(name = "JobTitle")
+    private String jobTitle;
 
-        @Column(name = "SelfFunded")
-        private String selfFunded;
+    @Column(name = "Email")
+    private String email;
 
-        @Column(name = "Sponsor")
-        private String sponsor;
+    @Column(name = "SelfFunded")
+    private String selfFunded;
 
-        @Column(name = "Hospital")
-        private String hospital;
+    @Column(name = "Sponsor")
+    private String sponsor;
 
-        @Column(name = "HD/BC")
-        private String hdBc;
+    @Column(name = "Hospital")
+    private String hospital;
 
-        @Column(name = "InvitationUnit")
-        private String invitationUnit;
+    @Column(name = "hd_bc")
+    private String hdBc;
 
-        @Column(name = "Doan")
-        private String doan;
+    @Column(name = "InvitationUnit")
+    private String invitationUnit;
 
-        @Column(name = "PartyMember")
-        private String partyMember;
+    @Column(name = "Doan")
+    private String doan;
 
-        @Column(name = "ForeignTripCount")
-        private String foreignTripCount;
+    @Column(name = "PartyMember")
+    private String partyMember;
 
-        @Column(name = "NotificationNumber")
-        private String notificationNumber;
+    @Column(name = "ForeignTripCount")
+    private String foreignTripCount;
 
-        @Column(name = "NotificationDate")
-        private String notificationDate;
+    @Column(name = "NotificationNumber")
+    private String notificationNumber;
 
-        @Column(name = "city")
-        private String city;
+    @Column(name = "NotificationDate")
+    private String notificationDate;
 
-        @Column(name = "StartDate")
-        private Date startDate;
+    @Column(name = "city")
+    private String city;
 
-        @Column(name = "EndDate")
-        private Date endDate;
+    @Column(name = "StartDate")
+    private Date startDate;
+
+    @Column(name = "EndDate")
+    private Date endDate;
+
+    @Column(name = "BirthDate")
+    private String birthDate;
+
+    @Column(name = "Gender")
+    private String gender;
+
+    @Column(name = "Position")
+    private String position;
+
+    @Column(name = "PhoneNumber")
+    private String phoneNumber;
+
+    @Column(name = "PartyBranch")
+    private String partyBranch;
+
+    @Column(name = "PartyPosition")
+    private String party_position;
+
+    @Column(name = "Employee")
+    private String employee;
+
+    @Column(name = "JobName")
+    private String jobName;
+
+    @Column(name = "RestCount")
+    private String restCount;
+
+    @Column(name = "Alternative")
+    private String alternative;
+
+    @Column(name = "SubmitDay")
+    private String submitDay;
 
     public Long getId() {
         return id;
@@ -217,5 +254,101 @@ public class listDoan {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPartyBranch() {
+        return partyBranch;
+    }
+
+    public void setPartyBranch(String partyBranch) {
+        this.partyBranch = partyBranch;
+    }
+
+    public String getPartyPosition() {
+        return party_position;
+    }
+
+    public void setPartyPosition(String partyPosition) {
+        this.party_position = partyPosition;
+    }
+
+    public String getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(String employee) {
+        this.employee = employee;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public String getRestCount() {
+        return restCount;
+    }
+
+    public void setRestCount(String restCount) {
+        this.restCount = restCount;
+    }
+
+    public String getAlternative() {
+        return alternative;
+    }
+
+    public void setAlternative(String alternative) {
+        this.alternative = alternative;
+    }
+
+    public String getSubmitDay() {
+        return submitDay;
+    }
+
+    public void setSubmitDay(String submitDay) {
+        this.submitDay = submitDay;
     }
 }

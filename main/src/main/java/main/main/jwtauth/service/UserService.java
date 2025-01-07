@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 import main.main.jwtauth.model.User;
 import main.main.jwtauth.repository.UserRepository;
 
-
 @Service
-public class UserService implements UserDetailsService{
+public class UserService implements UserDetailsService {
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 

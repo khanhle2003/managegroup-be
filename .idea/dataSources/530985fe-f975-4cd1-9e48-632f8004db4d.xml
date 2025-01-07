@@ -1125,7 +1125,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="305" parent="302" name="full_name">
+    <column id="305" parent="302" name="fullName">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>

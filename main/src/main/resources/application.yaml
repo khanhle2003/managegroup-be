@@ -11,9 +11,9 @@ server:
 spring:
   datasource:
 
-    url: "jdbc:mysql://localhost:3306/managegroup"
+    url: "jdbc:mysql://localhost:3306/qldoan"
     username: root
-    password: root
+    password: nguyenlongnt2707
   jpa:
     hibernate:
       ddl-auto: update
