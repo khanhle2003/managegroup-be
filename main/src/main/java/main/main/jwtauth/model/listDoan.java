@@ -65,6 +65,7 @@ public class listDoan {
     @Column(name = "city")
     private String city;
 
+
     @Column(name = "StartDate")
     private Date startDate;
 
