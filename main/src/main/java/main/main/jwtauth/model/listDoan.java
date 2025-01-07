@@ -41,7 +41,7 @@ public class listDoan {
     @Column(name = "Hospital")
     private String hospital;
 
-    @Column(name = "HD/BC")
+    @Column(name = "hd_bc")
     private String hdBc;
 
     @Column(name = "InvitationUnit")
@@ -84,28 +84,25 @@ public class listDoan {
     private String phoneNumber;
 
     @Column(name = "PartyBranch")
-    private String party_branch;
+    private String partyBranch;
 
     @Column(name = "PartyPosition")
     private String party_position;
 
-    @Column(name = "Contract")
-    private String contract;
-
-    @Column(name = "Official")
-    private String official;
+    @Column(name = "Employee")
+    private String employee;
 
     @Column(name = "JobName")
-    private String job_name;
+    private String jobName;
 
     @Column(name = "RestCount")
-    private String rest_count;
+    private String restCount;
 
     @Column(name = "Alternative")
     private String alternative;
 
     @Column(name = "SubmitDay")
-    private String submit_day;
+    private String submitDay;
 
     public Long getId() {
         return id;
@@ -300,51 +297,43 @@ public class listDoan {
     }
 
     public String getPartyBranch() {
-        return party_branch;
+        return partyBranch;
     }
 
-    public void setPartyBranch(String party_branch) {
-        this.party_branch = party_branch;
+    public void setPartyBranch(String partyBranch) {
+        this.partyBranch = partyBranch;
     }
 
     public String getPartyPosition() {
         return party_position;
     }
 
-    public void setPartyPosition(String party_position) {
-        this.party_position = party_position;
+    public void setPartyPosition(String partyPosition) {
+        this.party_position = partyPosition;
     }
 
-    public String getContract() {
-        return contract;
+    public String getEmployee() {
+        return employee;
     }
 
-    public void setContract(String contract) {
-        this.contract = contract;
-    }
-
-    public String getOfficial() {
-        return official;
-    }
-
-    public void setOfficial(String official) {
-        this.official = official;
+    public void setEmployee(String employee) {
+        this.employee = employee;
     }
 
     public String getJobName() {
-        return job_name;
+        return jobName;
     }
 
-    public void setJobName(String job_name) {
-        this.job_name = job_name;
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 
     public String getRestCount() {
-        return rest_count;
+        return restCount;
     }
 
-    public void setRestCount(String rest_count) {
-        this.rest_count = rest_count;
+    public void setRestCount(String restCount) {
+        this.restCount = restCount;
     }
 
     public String getAlternative() {
@@ -356,10 +345,10 @@ public class listDoan {
     }
 
     public String getSubmitDay() {
-        return submit_day;
+        return submitDay;
     }
 
-    public void setSubmitDay(String submit_day) {
-        this.submit_day = submit_day;
+    public void setSubmitDay(String submitDay) {
+        this.submitDay = submitDay;
     }
 }

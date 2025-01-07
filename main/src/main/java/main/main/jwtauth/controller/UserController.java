@@ -56,12 +56,12 @@ public class UserController {
         data.put("foreign_trip_count", trip.getForeignTripCount() != null ? trip.getForeignTripCount() : "");
         data.put("party_branch", trip.getPartyBranch() != null ? trip.getPartyBranch() : "");
         data.put("party_position", trip.getPartyPosition() != null ? trip.getPartyPosition() : "");
-        data.put("contract", trip.getContract() != null ? trip.getContract() : "");
-        data.put("offical", trip.getOfficial() != null ? trip.getOfficial() : "");
+        data.put("employee", trip.getEmployee() != null ? trip.getEmployee() : "");
         data.put("job_name", trip.getJobName() != null ? trip.getJobName() : "");
         data.put("rest_count", trip.getRestCount() != null ? trip.getRestCount() : "");
         data.put("alternative", trip.getAlternative() != null ? trip.getAlternative() : "");
         data.put("submit_day", trip.getSubmitDay() != null ? trip.getSubmitDay() : "");
+        data.put("invitation_unit", trip.getInvitationUnit() != null ? trip.getInvitationUnit() : "");
         System.out.println("Replacement values:");
         data.forEach((key, value) -> System.out.println(key + ": " + value));
 
