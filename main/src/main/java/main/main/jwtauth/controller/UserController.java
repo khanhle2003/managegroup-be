@@ -3,16 +3,14 @@ package main.main.jwtauth.controller;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.apache.poi.xwpf.usermodel.XWPFTable;
-import org.apache.poi.xwpf.usermodel.XWPFTableCell;
-import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
@@ -31,14 +29,13 @@ import main.main.jwtauth.repository.listDoanRepo;
 @CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true")
 public class UserController {
 
-
     @Autowired
     private listDoanRepo listDoanRepo;
 
     @GetMapping("/export/{id}")
     public ResponseEntity<byte[]> exportWord(@PathVariable Long id) throws IOException {
         listDoan trip = listDoanRepo.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-    
+
         Map<String, String> data = new HashMap<>();
         data.put("full_name", trip.getFullName() != null ? trip.getFullName() : "");
         data.put("birthDate", trip.getBirthDate() != null ? trip.getBirthDate() : "");
@@ -50,17 +47,17 @@ public class UserController {
         data.put("email", trip.getEmail() != null ? trip.getEmail() : "");
         data.put("country", trip.getCountry() != null ? trip.getCountry() : "");
         data.put("sponsor", trip.getSponsor() != null ? trip.getSponsor() : "");
-        data.put("start_date", trip.getStartDate() != null ? trip.getStartDate().toString() : "");
-        data.put("end_date", trip.getEndDate() != null ? trip.getEndDate().toString() : "");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        data.put("start_date", trip.getStartDate() != null ? trip.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(formatter) : "");
+        data.put("end_date", trip.getEndDate() != null ? trip.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(formatter) : "");
         data.put("trip_purpose", trip.getTripPurpose() != null ? trip.getTripPurpose() : "");
         data.put("self_funded", trip.getSelfFunded() != null ? trip.getSelfFunded() : "");
         data.put("hospital", trip.getHospital() != null ? trip.getHospital() : "");
         data.put("foreign_trip_count", trip.getForeignTripCount() != null ? trip.getForeignTripCount() : "");
-    
 
         System.out.println("Replacement values:");
         data.forEach((key, value) -> System.out.println(key + ": " + value));
-    
+
         ClassPathResource template = new ClassPathResource("templates/don_xin_di_nuoc_ngoai.docx");
         XWPFDocument document;
         try (FileInputStream fis = new FileInputStream(template.getFile())) {
@@ -69,28 +66,27 @@ public class UserController {
 
         for (XWPFParagraph paragraph : document.getParagraphs()) {
             String paragraphText = paragraph.getText();
-            System.out.println("Processing paragraph: " + paragraphText); 
+            System.out.println("Processing paragraph: " + paragraphText);
 
             boolean containsPlaceholder = data.keySet().stream()
-                .anyMatch(key -> paragraphText.contains("{" + key + "}"));
-    
+                    .anyMatch(key -> paragraphText.contains("{" + key + "}"));
+
             if (containsPlaceholder) {
- 
+
                 String fullText = paragraph.getText();
-                
- 
+
                 for (Map.Entry<String, String> entry : data.entrySet()) {
                     String placeholder = "{" + entry.getKey() + "}";
                     if (fullText.contains(placeholder)) {
-                        System.out.println("Found placeholder: " + placeholder); 
+                        System.out.println("Found placeholder: " + placeholder);
                         fullText = fullText.replace(placeholder, entry.getValue());
                     }
                 }
-    
+
                 while (paragraph.getRuns().size() > 1) {
                     paragraph.removeRun(1);
                 }
-   
+
                 if (paragraph.getRuns().size() > 0) {
                     XWPFRun run = paragraph.getRuns().get(0);
                     run.setText(fullText, 0);
@@ -101,51 +97,11 @@ public class UserController {
                 }
             }
         }
-    
 
-        // for (XWPFTable table : document.getTables()) {
-        //     for (XWPFTableRow row : table.getRows()) {
-        //         for (XWPFTableCell cell : row.getTableCells()) {
-        //             for (XWPFParagraph paragraph : cell.getParagraphs()) {
-        //                 String paragraphText = paragraph.getText();
-        //                 System.out.println("Processing table cell: " + paragraphText); // Debug log
-    
-        //                 // Similar replacement logic for table cells
-        //                 boolean containsPlaceholder = data.keySet().stream()
-        //                     .anyMatch(key -> paragraphText.contains("{" + key + "}"));
-    
-        //                 if (containsPlaceholder) {
-        //                     String fullText = paragraph.getText();
-                            
-        //                     for (Map.Entry<String, String> entry : data.entrySet()) {
-        //                         String placeholder = "{" + entry.getKey() + "}";
-        //                         if (fullText.contains(placeholder)) {
-        //                             System.out.println("Found placeholder in table: " + placeholder); // Debug log
-        //                             fullText = fullText.replace(placeholder, entry.getValue());
-        //                         }
-        //                     }
-    
-        //                     while (paragraph.getRuns().size() > 1) {
-        //                         paragraph.removeRun(1);
-        //                     }
-    
-        //                     if (paragraph.getRuns().size() > 0) {
-        //                         XWPFRun run = paragraph.getRuns().get(0);
-        //                         run.setText(fullText, 0);
-        //                     } else {
-        //                         XWPFRun run = paragraph.createRun();
-        //                         run.setText(fullText, 0);
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-    
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         document.write(outputStream);
         document.close();
-    
+
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=document.docx")
                 .body(outputStream.toByteArray());
