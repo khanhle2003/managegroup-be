@@ -103,44 +103,44 @@ public class UserController {
         }
     
 
-        for (XWPFTable table : document.getTables()) {
-            for (XWPFTableRow row : table.getRows()) {
-                for (XWPFTableCell cell : row.getTableCells()) {
-                    for (XWPFParagraph paragraph : cell.getParagraphs()) {
-                        String paragraphText = paragraph.getText();
-                        System.out.println("Processing table cell: " + paragraphText); // Debug log
+        // for (XWPFTable table : document.getTables()) {
+        //     for (XWPFTableRow row : table.getRows()) {
+        //         for (XWPFTableCell cell : row.getTableCells()) {
+        //             for (XWPFParagraph paragraph : cell.getParagraphs()) {
+        //                 String paragraphText = paragraph.getText();
+        //                 System.out.println("Processing table cell: " + paragraphText); // Debug log
     
-                        // Similar replacement logic for table cells
-                        boolean containsPlaceholder = data.keySet().stream()
-                            .anyMatch(key -> paragraphText.contains("{" + key + "}"));
+        //                 // Similar replacement logic for table cells
+        //                 boolean containsPlaceholder = data.keySet().stream()
+        //                     .anyMatch(key -> paragraphText.contains("{" + key + "}"));
     
-                        if (containsPlaceholder) {
-                            String fullText = paragraph.getText();
+        //                 if (containsPlaceholder) {
+        //                     String fullText = paragraph.getText();
                             
-                            for (Map.Entry<String, String> entry : data.entrySet()) {
-                                String placeholder = "{" + entry.getKey() + "}";
-                                if (fullText.contains(placeholder)) {
-                                    System.out.println("Found placeholder in table: " + placeholder); // Debug log
-                                    fullText = fullText.replace(placeholder, entry.getValue());
-                                }
-                            }
+        //                     for (Map.Entry<String, String> entry : data.entrySet()) {
+        //                         String placeholder = "{" + entry.getKey() + "}";
+        //                         if (fullText.contains(placeholder)) {
+        //                             System.out.println("Found placeholder in table: " + placeholder); // Debug log
+        //                             fullText = fullText.replace(placeholder, entry.getValue());
+        //                         }
+        //                     }
     
-                            while (paragraph.getRuns().size() > 1) {
-                                paragraph.removeRun(1);
-                            }
+        //                     while (paragraph.getRuns().size() > 1) {
+        //                         paragraph.removeRun(1);
+        //                     }
     
-                            if (paragraph.getRuns().size() > 0) {
-                                XWPFRun run = paragraph.getRuns().get(0);
-                                run.setText(fullText, 0);
-                            } else {
-                                XWPFRun run = paragraph.createRun();
-                                run.setText(fullText, 0);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //                     if (paragraph.getRuns().size() > 0) {
+        //                         XWPFRun run = paragraph.getRuns().get(0);
+        //                         run.setText(fullText, 0);
+        //                     } else {
+        //                         XWPFRun run = paragraph.createRun();
+        //                         run.setText(fullText, 0);
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         document.write(outputStream);
