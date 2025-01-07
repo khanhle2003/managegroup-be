@@ -29,6 +29,7 @@ import main.main.jwtauth.repository.listDoanRepo;
 @CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true")
 public class UserController {
 
+
     @Autowired
     private listDoanRepo listDoanRepo;
 
