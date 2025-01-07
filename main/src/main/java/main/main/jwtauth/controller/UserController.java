@@ -38,9 +38,9 @@ public class UserController {
 
         Map<String, String> data = new HashMap<>();
         data.put("full_name", trip.getFullName() != null ? trip.getFullName() : "");
-        data.put("birthDate", trip.getBirthDate() != null ? trip.getBirthDate() : "");
+        data.put("birth_date", trip.getBirthDate() != null ? trip.getBirthDate() : "");
         data.put("gender", trip.getGender() != null ? trip.getGender() : "");
-        data.put("partyMember", trip.getPartyMember() != null ? trip.getPartyMember() : "");
+        data.put("party_member", trip.getPartyMember() != null ? trip.getPartyMember() : "");
         data.put("job_title", trip.getJobTitle() != null ? trip.getJobTitle() : "");
         data.put("unit", trip.getUnit() != null ? trip.getUnit() : "");
         data.put("phone_number", trip.getPhoneNumber() != null ? trip.getPhoneNumber() : "");
