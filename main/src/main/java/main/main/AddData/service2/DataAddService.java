@@ -49,6 +49,8 @@ public class DataAddService {
         data.setAlternative(request.getRestCount());
         data.setSubmitDay(request.getSubmitDay());
 
+        data.setBirthDate(request.getBirthDate());
+
         return (Data) dataRepository.save(data);
     }
 }

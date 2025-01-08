@@ -39,4 +39,5 @@ public class AddDataDto {
     private String restCount;
     private String alternative;
     private String submitDay;
+    private String birthDate;
 }
