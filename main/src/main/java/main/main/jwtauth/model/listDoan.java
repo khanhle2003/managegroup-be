@@ -156,6 +156,7 @@ public class listDoan {
         return selfFunded;
     }
 
+//36
     public void setSelfFunded(String selfFunded) {
         this.selfFunded = selfFunded;
     }
