@@ -33,7 +33,7 @@ public class AddDataDto {
     private String phoneNumber;
     private String position;
     private String partyBranch;
-    private String party_position;
+    private String partyPosition;
     private String employee;
     private String jobName;
     private String restCount;
