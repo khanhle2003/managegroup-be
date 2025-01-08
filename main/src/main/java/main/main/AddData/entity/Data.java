@@ -65,7 +65,7 @@ public class Data {
     @Column(name = "PartyBranch")
     private String partyBranch;
     @Column(name = "PartyPosition")
-    private String party_position;
+    private String partyPosition;
     @Column(name = "Employee")
     private String employee;
     @Column(name = "JobName")

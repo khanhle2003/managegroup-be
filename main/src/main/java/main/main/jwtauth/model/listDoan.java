@@ -87,7 +87,7 @@ public class listDoan {
     private String partyBranch;
 
     @Column(name = "PartyPosition")
-    private String party_position;
+    private String partyPosition;
 
     @Column(name = "Employee")
     private String employee;
@@ -305,11 +305,11 @@ public class listDoan {
     }
 
     public String getPartyPosition() {
-        return party_position;
+        return partyPosition;
     }
 
     public void setPartyPosition(String partyPosition) {
-        this.party_position = partyPosition;
+        this.partyPosition = partyPosition;
     }
 
     public String getEmployee() {
