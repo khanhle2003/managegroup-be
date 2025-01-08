@@ -50,6 +50,8 @@ public class DataAddService {
         data.setSubmitDay(request.getSubmitDay());
         data.setBirth_date(request.getBirthDate());
 
+        data.setBirthDate(request.getBirthDate());
+
         return (Data) dataRepository.save(data);
     }
 }

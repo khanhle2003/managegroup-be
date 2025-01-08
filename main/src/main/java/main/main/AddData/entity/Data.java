@@ -79,4 +79,5 @@ public class Data {
     @Column(name ="birthDate")
 private LocalDate birth_date;
 
+
 }
