@@ -72,7 +72,7 @@ public class listDoan {
     private Date endDate;
 
     @Column(name = "BirthDate")
-    private String birthDate;
+    private Date birthDate;
 
     @Column(name = "Gender")
     private String gender;
@@ -256,11 +256,11 @@ public class listDoan {
         this.endDate = endDate;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
