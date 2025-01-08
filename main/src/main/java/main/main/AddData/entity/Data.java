@@ -77,7 +77,7 @@ public class Data {
     @Column(name = "SubmitDay")
     private String submitDay;
     @Column(name ="birthDate")
-private LocalDate birth_date;
+private LocalDate birthdate;
 
 
 }
