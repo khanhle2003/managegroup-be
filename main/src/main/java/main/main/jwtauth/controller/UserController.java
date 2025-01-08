@@ -29,16 +29,17 @@ import main.main.jwtauth.repository.listDoanRepo;
 @CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true")
 public class UserController {
 
+
     @Autowired
     private listDoanRepo listDoanRepo;
 
     @GetMapping("/export/{id}")
     public ResponseEntity<byte[]> exportWord(@PathVariable Long id) throws IOException {
         listDoan trip = listDoanRepo.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         Map<String, String> data = new HashMap<>();
         data.put("full_name", trip.getFullName() != null ? trip.getFullName() : "");
-        data.put("birth_date", trip.getBirthDate() != null ? trip.getBirthDate() : "");
+        data.put("birth_date", trip.getBirthDate() != null ? trip.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(formatter) : "");
         data.put("gender", trip.getGender() != null ? trip.getGender() : "");
         data.put("party_member", trip.getPartyMember() != null ? trip.getPartyMember() : "");
         data.put("job_title", trip.getJobTitle() != null ? trip.getJobTitle() : "");
@@ -47,7 +48,7 @@ public class UserController {
         data.put("email", trip.getEmail() != null ? trip.getEmail() : "");
         data.put("country", trip.getCountry() != null ? trip.getCountry() : "");
         data.put("sponsor", trip.getSponsor() != null ? trip.getSponsor() : "");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         data.put("start_date", trip.getStartDate() != null ? trip.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(formatter) : "");
         data.put("end_date", trip.getEndDate() != null ? trip.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(formatter) : "");
         data.put("trip_purpose", trip.getTripPurpose() != null ? trip.getTripPurpose() : "");

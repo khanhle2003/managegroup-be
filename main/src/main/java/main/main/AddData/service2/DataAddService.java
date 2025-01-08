@@ -41,13 +41,17 @@ public class DataAddService {
         data.setEmail(request.getEmail());
         data.setPhoneNumber(request.getPhoneNumber());
         data.setPartyBranch(request.getPartyBranch());
+
         data.setPartyPosition(request.getPartyPosition());
         data.setEmployee(request.getEmployee());
         data.setJobName(request.getJobName());
         data.setRestCount(request.getRestCount());
         data.setAlternative(request.getRestCount());
         data.setSubmitDay(request.getSubmitDay());
+        data.setBirth_date(request.getBirthDate());
+
         data.setBirthDate(request.getBirthDate());
+
         return (Data) dataRepository.save(data);
     }
 }

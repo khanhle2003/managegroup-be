@@ -6,7 +6,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "data")
 public class listDoan {
@@ -72,15 +76,12 @@ public class listDoan {
     private Date endDate;
 
     @Column(name = "BirthDate")
-    private String birthDate;
+    private Date birthDate;
 
     @Column(name = "Gender")
     private String gender;
 
-    @Column(name = "Position")
-    private String position;
-
-    @Column(name = "PhoneNumber")
+    @Column(name ="phoneNumber")
     private String phoneNumber;
 
     @Column(name = "PartyBranch")
@@ -349,7 +350,4 @@ public class listDoan {
         return submitDay;
     }
 
-    public void setSubmitDay(String submitDay) {
-        this.submitDay = submitDay;
-    }
 }
