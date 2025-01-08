@@ -111,7 +111,7 @@ public class importUtils {
                                 doan.setEndDate(currentCell.getDateCellValue());
                                 break;
                             case 21:
-                                doan.setBirthDate(currentCell.getStringCellValue());
+                                doan.setBirthDate(currentCell.getDateCellValue());
                                 break;
                             case 22:
                                 doan.setGender(currentCell.getStringCellValue());
