@@ -128,12 +128,6 @@ public class importUtils {
                             case 26:
                                 doan.setPartyPosition(currentCell.getStringCellValue());
                                 break;
-                            case 27:
-                                doan.setContract(currentCell.getStringCellValue());
-                                break;
-                            case 28:
-                                doan.setOfficial(currentCell.getStringCellValue());
-                                break;
                             case 29:
                                 doan.setJobName(currentCell.getStringCellValue());
                                 break;
