@@ -8,15 +8,18 @@ import org.springframework.stereotype.Service;
 import main.main.AddData.dto.request.AddDataDto;
 import main.main.AddData.entity.Data;
 import main.main.AddData.repo.DataRepo;
+
 @Service
 public class DataAddService {
+
     @Autowired
     private DataRepo dataRepository;
 
-    public List<Data> getAllData(){
+    public List<Data> getAllData() {
         return dataRepository.findAll();
     }
-    public Data addData(AddDataDto request){
+
+    public Data addData(AddDataDto request) {
         Data data = new Data();
 
         data.setFullName(request.getFullname());
@@ -37,6 +40,18 @@ public class DataAddService {
         data.setGender(request.getGender());
         data.setEmail(request.getEmail());
         data.setPhoneNumber(request.getPhoneNumber());
+        data.setPartyBranch(request.getPartyBranch());
+
+        data.setPartyPosition(request.getPartyPosition());
+        data.setEmployee(request.getEmployee());
+        data.setJobName(request.getJobName());
+        data.setRestCount(request.getRestCount());
+        data.setAlternative(request.getRestCount());
+        data.setSubmitDay(request.getSubmitDay());
+        data.setBirth_date(request.getBirthDate());
+
+        data.setBirthDate(request.getBirthDate());
+
         return (Data) dataRepository.save(data);
     }
 }

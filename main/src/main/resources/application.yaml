@@ -13,6 +13,7 @@ spring:
     url: "jdbc:mysql://localhost:3306/qldoan"
     username: root
     password: root
+
   jpa:
     hibernate:
       ddl-auto: update
