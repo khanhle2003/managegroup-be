@@ -76,5 +76,6 @@ public class Data {
     private String alternative;
     @Column(name = "SubmitDay")
     private String submitDay;
-
+    @Column(name = "BirthDate")
+    private String birthDate;
 }
