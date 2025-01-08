@@ -37,6 +37,14 @@ public class DataAddService {
         data.setGender(request.getGender());
         data.setEmail(request.getEmail());
         data.setPhoneNumber(request.getPhoneNumber());
+        data.setPartyBranch(request.getPartyBranch());
+        data.setParty_position(request.getParty_position());
+        data.setJobName(request.getJobName());
+        data.setRestCount(request.getRestCount());
+        data.setAlternative(request.getAlternative());
+        data.setSubmitDay(request.getSubmitDay());
+        data.setEmployee(request.getEmployee());
+
         return (Data) dataRepository.save(data);
     }
 }
