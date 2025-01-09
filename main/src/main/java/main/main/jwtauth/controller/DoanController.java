@@ -1,8 +1,7 @@
 package main.main.jwtauth.controller;
 
 import main.main.jwtauth.model.listDoan;
-import main.main.jwtauth.service.doanService;
-import main.main.jwtauth.util.importUtils;
+import main.main.jwtauth.service.ExcelImportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,38 +17,16 @@ import java.util.Map;
 @RequestMapping("/api")
 public class DoanController {
     @Autowired
-    doanService DoanService;
+    private ExcelImportService excelImportService;
 
-    @PostMapping("/excel/upload")
-    public ResponseEntity<?> uploadFile(@RequestParam("file")MultipartFile file){
-        String messgae = "";
-        if(importUtils.hasExcelFormat(file)){
-            try{
-                DoanService.save(file);
-                String message = "The Excel file is uploaded: " + file.getOriginalFilename();
-                return ResponseEntity.status(HttpStatus.OK).body(message);
-            } catch (Exception exp) {
-                String message = "The Excel file is not upload: " + file.getOriginalFilename() + "!";
-                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(message);
-            }
-        }
-        String message = "Please upload an excel file!";
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
-    }
-
-    @GetMapping("/doan-list")
-    public ResponseEntity<?> getDoans(){
-        Map<String, Object> respDoan = new LinkedHashMap<String, Object>();
-        List<listDoan> doanList = DoanService.findAll();
-        if (!doanList.isEmpty()) {
-            respDoan.put("status", 1);
-            respDoan.put("data", doanList);
-            return new ResponseEntity<>(respDoan, HttpStatus.OK);
-        } else {
-            respDoan.clear();
-            respDoan.put("status", 0);
-            respDoan.put("message", "Data is not found");
-            return new ResponseEntity<>(respDoan, HttpStatus.NOT_FOUND);
+    @PostMapping("/import")
+    public ResponseEntity<String> importExcel(@RequestParam("file") MultipartFile file) {
+        try {
+            excelImportService.importFromExcel(file);
+            return ResponseEntity.ok("Import thành công");
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Lỗi khi import: " + e.getMessage());
         }
     }
 }

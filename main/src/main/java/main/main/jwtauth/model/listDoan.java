@@ -2,16 +2,14 @@ package main.main.jwtauth.model;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "data")
 public class listDoan {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "FullName")
@@ -23,7 +21,7 @@ public class listDoan {
     @Column(name = "Country")
     private String country;
 
-    @Column(name = "TripPurpose")
+    @Column(name = "TripPurpose", length = 255)
     private String tripPurpose;
 
     @Column(name = "JobTitle")
