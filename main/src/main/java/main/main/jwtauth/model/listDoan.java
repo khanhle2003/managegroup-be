@@ -1,8 +1,11 @@
 package main.main.jwtauth.model;
 
+import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
-import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "data")
