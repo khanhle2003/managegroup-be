@@ -2,6 +2,8 @@ package main.main.jwtauth.model;
 
 import java.util.Date;
 
+import javax.xml.crypto.Data;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -68,10 +70,10 @@ public class listDoan {
     private String city;
 
     @Column(name = "StartDate")
-    private String startDate;
+    private Date startDate;
 
     @Column(name = "EndDate")
-    private String endDate;
+    private Date endDate;
 
     @Column(name = "BirthDate")
     private String birthDate;

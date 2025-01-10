@@ -89,9 +89,8 @@ public class ExportSXSSFController {
             for (DataofCusEntity data : selectedData) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(data.getFullName());
+                row.createCell(2).setCellValue(data.getBirthDate());
                 row.createCell(1).setCellValue(data.getGender());
-                row.createCell(2).setCellValue(data.getBirth_date());
-
                 row.createCell(3).setCellValue(data.getPartyBranch());
                 row.createCell(4).setCellValue(data.getPartyPosition());
                 row.createCell(5).setCellValue(data.getJobTitle());
@@ -130,7 +129,7 @@ public class ExportSXSSFController {
             }
     
             // Auto size các cột
-            for (int i = 0; i < 27; i++) {
+            for (int i = 0; i < 37; i++) {
                 sheet.autoSizeColumn(i);
             }
     
