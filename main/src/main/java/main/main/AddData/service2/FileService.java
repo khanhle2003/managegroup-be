@@ -47,7 +47,6 @@ public class FileService {
             writer.write("Sponsor: " + data.getSponsor() + "\n");
             writer.write("Hospital: " + data.getHospital() + "\n");
             writer.write("Invitation Unit: " + data.getInvitationUnit() + "\n");
-            writer.write("Party Member: " + data.getPartyMember() + "\n");
             writer.write("Foreign Trip Count: " + data.getForeignTripCount() + "\n");
             writer.write("Notification Number: " + data.getNotificationNumber() + "\n");
             writer.write("Notification Date: " + data.getNotificationDate() + "\n");
