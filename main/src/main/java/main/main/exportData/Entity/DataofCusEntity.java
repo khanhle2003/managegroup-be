@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.persistence.Column;
 
-import java.time.LocalDate;
 
 @Data
 @Getter
@@ -28,10 +27,10 @@ public class DataofCusEntity {
      private int id;
     @Column(name = "FullName")
     private String FullName;
+    @Column(name = "birthDate")
+    private String birthDate;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "birthDate")
-    private LocalDate birth_date;
     @Column(name = "PartyBranch")
     private String partyBranch;
     @Column(name = "PartyPosition")
@@ -55,11 +54,11 @@ public class DataofCusEntity {
     @Column(name = "TripPurpose")
     private String TripPurpose;
     @Column(name = "StartDate")
-    private LocalDate StartDate;
+    private String StartDate;
     @Column(name = "monthBegin")//tjang bat dau
     private String monthBegon;
     @Column(name = "EndDate")
-    private LocalDate EndDate;
+    private String EndDate;
     @Column(name = "Thoigiandichuyen")
     private String Thoigiandichuyen;
     @Column(name = "SelfFunded")
@@ -73,25 +72,25 @@ public class DataofCusEntity {
     @Column(name = "ForeignTripCount")
     private String ForeignTripCount;
     @Column(name = "ngayXindi")
-    private LocalDate ngayXindi; 
+    private String ngayXindi; 
     @Column(name = "ngayPnhanHS")
-    private LocalDate ngayPnhanHS;
+    private String ngayPnhanHS;
     @Column(name = "NotificationNumber")
     private String notificationNumber;
     @Column(name = "NotificationDate")
-    private LocalDate notificationDate;
+    private String notificationDate;
     @Column(name = "ngaychuyenHSsangP")
-    private LocalDate ngaychuyenHSsangP;
+    private String ngaychuyenHSsangP;
     @Column(name = "Alternative")//ng tiep nhan
     private String alternative;
     @Column(name = "SoNghiPhep")
     private String SoNghiPhep;
     @Column(name = "NgayNghiPhep")
-    private LocalDate NgayNghiPhep;
+    private String NgayNghiPhep;
     @Column(name = "SubmitDay")
     private String submitDay; 
     @Column(name = "PhotoHochieu")
-    private LocalDate PhotoHochieu; 
+    private String PhotoHochieu; 
     @Column(name = "NoiDung")
     private String NoiDung; 
     @Column(name = "TenBaoCao")
