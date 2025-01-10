@@ -54,7 +54,7 @@ public class UserController {
         data.put("self_funded", trip.getSelfFunded() != null ? trip.getSelfFunded() : "");
         data.put("hospital", trip.getHospital() != null ? trip.getHospital() : "");
         data.put("foreign_trip_count", trip.getForeignTripCount() != null ? trip.getForeignTripCount() : "");
-        data.put("party_branch", trip.getPartyBranch() != null ? trip.getPartyBranch() : "");
+        data.put("party_branch", Boolean.parseBoolean(trip.getPartyBranch()) ? "☑" : "☐");
         data.put("party_position", trip.getPartyPosition() != null ? trip.getPartyPosition() : "");
         data.put("employee", trip.getEmployee() != null ? trip.getEmployee() : "");
         data.put("job_name", trip.getJobName() != null ? trip.getJobName() : "");

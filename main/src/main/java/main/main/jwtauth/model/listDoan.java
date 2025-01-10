@@ -94,7 +94,6 @@ public class listDoan {
     @Column(name = "JobName")
     private String jobName;
 
-
     @Column(name = "RestCount")
     private String restCount;
 
