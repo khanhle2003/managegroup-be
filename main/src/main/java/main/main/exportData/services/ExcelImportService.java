@@ -30,14 +30,14 @@ public class ExcelImportService {
             Iterator<Row> rows = sheet.iterator();
             rows.next();
 
-            List<DataofCusEntity> listDoans = new ArrayList<>();
+
 
             while (rows.hasNext()){
                 Row row = rows.next();
 
                 DataofCusEntity listdoan = new DataofCusEntity();
                 listdoan.setFullName(getCellValue(row.getCell(0)));
-                listdoan.setBirth_date(parseDate(getCellValue(row.getCell(1))));
+                listdoan.setBirthDate(getCellValue(row.getCell(1)));
                 listdoan.setGender(getCellValue(row.getCell(2)));
                 listdoan.setPartyBranch(getCellValue(row.getCell(3)));
                 listdoan.setPartyPosition(getCellValue(row.getCell(4)));
@@ -50,25 +50,25 @@ public class ExcelImportService {
                 listdoan.setInvitationUnit(getCellValue(row.getCell(11)));
                 listdoan.setMoiDichDanh(getCellValue(row.getCell(12)));
                 listdoan.setTripPurpose(getCellValue(row.getCell(13)));
-                listdoan.setStartDate(parseDate(getCellValue(row.getCell(14))));
+                listdoan.setStartDate(getCellValue(row.getCell(14)));
                 listdoan.setMonthBegon(getCellValue(row.getCell(15)));
-                listdoan.setEndDate(parseDate(getCellValue(row.getCell(16))));
+                listdoan.setEndDate(getCellValue(row.getCell(16)));
                 listdoan.setThoigiandichuyen(getCellValue(row.getCell(17)));
                 listdoan.setSelfFunded(getCellValue(row.getCell(18)));
                 listdoan.setSponsor(getCellValue(row.getCell(19)));
                 listdoan.setHospital(getCellValue(row.getCell(20)));
                 listdoan.setGiaTri(getCellValue(row.getCell(21)));
                 listdoan.setForeignTripCount(getCellValue(row.getCell(22)));
-                listdoan.setNgayXindi(parseDate(getCellValue(row.getCell(23))));
-                listdoan.setNgayPnhanHS(parseDate(getCellValue(row.getCell(24))));
+                listdoan.setNgayXindi(getCellValue(row.getCell(23)));
+                listdoan.setNgayPnhanHS(getCellValue(row.getCell(24)));
                 listdoan.setNotificationNumber(getCellValue(row.getCell(25)));
-                listdoan.setNotificationDate(parseDate(getCellValue(row.getCell(26))));
-                listdoan.setNgaychuyenHSsangP(parseDate(getCellValue(row.getCell(27))));
+                listdoan.setNotificationDate(getCellValue(row.getCell(26)));
+                listdoan.setNgaychuyenHSsangP(getCellValue(row.getCell(27)));
                 listdoan.setAlternative(getCellValue(row.getCell(28)));
                 listdoan.setSoNghiPhep(getCellValue(row.getCell(29)));
-                listdoan.setNgayNghiPhep(parseDate(getCellValue(row.getCell(30))));
+                listdoan.setNgayNghiPhep(getCellValue(row.getCell(30)));
                 listdoan.setSubmitDay(getCellValue(row.getCell(31)));
-                listdoan.setPhotoHochieu(parseDate(getCellValue(row.getCell(32))));
+                listdoan.setPhotoHochieu(getCellValue(row.getCell(32)));
                 listdoan.setNoiDung(getCellValue(row.getCell(33)));
                 listdoan.setTenBaoCao(getCellValue(row.getCell(34)));
                 listdoan.setHoanHuy(getCellValue(row.getCell(35)));
@@ -95,15 +95,5 @@ public class ExcelImportService {
             default:
                 return "";
         }
-    }
-
-    private LocalDate parseDate(String dateStr) {
-        try {
-            LocalDate localDate = LocalDate.parse(dateStr);
-
-        } catch (Exception e) {
-            return null;
-        }
-        return null;
     }
 }
