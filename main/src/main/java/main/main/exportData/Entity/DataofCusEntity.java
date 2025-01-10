@@ -1,256 +1,103 @@
 package main.main.exportData.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import jakarta.persistence.Column;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 @Data
-
+@Getter
+@Setter
 @Entity
-@Table(name = "data")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "data2")
 public class DataofCusEntity {
+    
     @Id
-    private Long id; 
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private int id;
     @Column(name = "FullName")
-    private String fullName;
-
-    @Column(name = "Unit")
-    private String unit;
-
-    @Column(name = "Country")
-    private String country;
-
-    @Column(name = "TripPurpose")
-    private String tripPurpose;
-
-    @Column(name = "JobTitle")
-    private String jobTitle;
-
-    @Column(name = "SelfFunded")
-    private String selfFunded;
-
-    @Column(name = "Sponsor")
-    private String sponsor;
-
-    @Column(name = "Hospital")
-    private String hospital;
-
-    @Column(name = "hd_bc")
-    private String hdBc;
-
-    @Column(name = "InvitationUnit")
-    private String invitationUnit;
-
-    @Column(name = "Doan")
-    private String doan;
-
-    @Column(name = "PartyMember")
-    private String partyMember;
-
-    @Column(name = "ForeignTripCount")
-    private String foreignTripCount;
-
-    @Column(name = "NotificationNumber")
-    private String notificationNumber;
-
-    @Column(name = "NotificationDate")
-    private String notificationDate;
-
-    @Column(name = "city")
-    private String city;
-
-    @Column(name = "StartDate")
-    private Date startDate;
-
-    @Column(name = "EndDate")
-    private Date endDate;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "Gender")
+    private String FullName;
+    @Column(name = "gender")
     private String gender;
-
+    @Column(name = "birthDate")
+    private LocalDate birth_date;
+    @Column(name = "PartyBranch")
+    private String partyBranch;
+    @Column(name = "PartyPosition")
+    private String partyPosition;
+    @Column(name = "JobTitle")
+    private String JobTitle;
+    @Column(name = "JobName")
+    private String jobName;
+    @Column(name = "Unit")
+    private String Unit;
     @Column(name = "phoneNumber")
     private String phoneNumber;
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getTripPurpose() {
-        return tripPurpose;
-    }
-
-    public void setTripPurpose(String tripPurpose) {
-        this.tripPurpose = tripPurpose;
-    }
-
-    public String getJobTitle() {
-        return jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public String getSelfFunded() {
-        return selfFunded;
-    }
-
-    public void setSelfFunded(String selfFunded) {
-        this.selfFunded = selfFunded;
-    }
-
-    public String getSponsor() {
-        return sponsor;
-    }
-
-    public void setSponsor(String sponsor) {
-        this.sponsor = sponsor;
-    }
-
-    public String getHospital() {
-        return hospital;
-    }
-
-    public void setHospital(String hospital) {
-        this.hospital = hospital;
-    }
-
-    public String getHdBc() {
-        return hdBc;
-    }
-
-    public void setHdBc(String hdBc) {
-        this.hdBc = hdBc;
-    }
-
-    public String getInvitationUnit() {
-        return invitationUnit;
-    }
-
-    public void setInvitationUnit(String invitationUnit) {
-        this.invitationUnit = invitationUnit;
-    }
-
-    public String getDoan() {
-        return doan;
-    }
-
-    public void setDoan(String doan) {
-        this.doan = doan;
-    }
-
-    public String getPartyMember() {
-        return partyMember;
-    }
-
-    public void setPartyMember(String partyMember) {
-        this.partyMember = partyMember;
-    }
-
-    public String getForeignTripCount() {
-        return foreignTripCount;
-    }
-
-    public void setForeignTripCount(String foreignTripCount) {
-        this.foreignTripCount = foreignTripCount;
-    }
-
-    public String getNotificationNumber() {
-        return notificationNumber;
-    }
-
-    public void setNotificationNumber(String notificationNumber) {
-        this.notificationNumber = notificationNumber;
-    }
-
-    public String getNotificationDate() {
-        return notificationDate;
-    }
-
-    public void setNotificationDate(String notificationDate) {
-        this.notificationDate = notificationDate;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+    @Column(name = "email")
+    private String email;
+    @Column(name = "Country")
+    private String Country;
+    @Column(name = "InvitationUnit")
+    private String InvitationUnit;
+    @Column(name = "MoiDichDanh")
+    private String MoiDichDanh;
+    @Column(name = "TripPurpose")
+    private String TripPurpose;
+    @Column(name = "StartDate")
+    private LocalDate StartDate;
+    @Column(name = "monthBegin")//tjang bat dau
+    private String monthBegon;
+    @Column(name = "EndDate")
+    private LocalDate EndDate;
+    @Column(name = "Thoigiandichuyen")
+    private String Thoigiandichuyen;
+    @Column(name = "SelfFunded")
+    private String SelfFunded;
+    @Column(name = "Sponsor")
+    private String Sponsor;
+    @Column(name = "Hospital")
+    private String Hospital;
+    @Column(name = "giaTri")
+    private String giaTri;
+    @Column(name = "ForeignTripCount")
+    private String ForeignTripCount;
+    @Column(name = "ngayXindi")
+    private LocalDate ngayXindi; 
+    @Column(name = "ngayPnhanHS")
+    private LocalDate ngayPnhanHS;
+    @Column(name = "NotificationNumber")
+    private String notificationNumber;
+    @Column(name = "NotificationDate")
+    private LocalDate notificationDate;
+    @Column(name = "ngaychuyenHSsangP")
+    private LocalDate ngaychuyenHSsangP;
+    @Column(name = "Alternative")//ng tiep nhan
+    private String alternative;
+    @Column(name = "SoNghiPhep")
+    private String SoNghiPhep;
+    @Column(name = "NgayNghiPhep")
+    private LocalDate NgayNghiPhep;
+    @Column(name = "SubmitDay")
+    private String submitDay; 
+    @Column(name = "PhotoHochieu")
+    private LocalDate PhotoHochieu; 
+    @Column(name = "NoiDung")
+    private String NoiDung; 
+    @Column(name = "TenBaoCao")
+    private String TenBaoCao; 
+    @Column(name = "Hoan/huy")
+    private String HoanHuy;
+    @Column(name = "Khac")
+    private String Khac;
 }

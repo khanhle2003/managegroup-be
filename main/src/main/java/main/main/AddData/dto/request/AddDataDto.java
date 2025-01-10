@@ -40,4 +40,20 @@ public class AddDataDto {
     private String alternative;
     private String submitDay;
     private LocalDate birthDate;
+    private LocalDate birth_date; // Giữ nguyên tên biến
+    private String monthBegin; // Giữ nguyên tên biến
+    private String Thoigiandichuyen; // Giữ nguyên tên biến
+    private String giaTri; // Giữ nguyên tên biến
+    private LocalDate ngayXindi; // Giữ nguyên tên biến
+    private LocalDate ngayPnhanHS; // Giữ nguyên tên biến
+    private LocalDate ngaychuyenHSsangP; // Giữ nguyên tên biến
+    private String SoNghiPhep; // Giữ nguyên tên biến
+    private LocalDate NgayNghiPhep; // Giữ nguyên tên biến
+    private LocalDate PhotoHochieu; // Giữ nguyên tên biến
+    private String NoiDung; // Giữ nguyên tên biến
+    private String TenBaoCao; // Giữ nguyên tên biến
+    private String HoanHuy; // Giữ nguyên tên biến
+    private String Khac;
+    private String MoiDichDanh;
+
 }
