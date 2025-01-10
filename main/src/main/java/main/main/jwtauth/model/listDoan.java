@@ -2,10 +2,7 @@ package main.main.jwtauth.model;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +13,7 @@ import lombok.Setter;
 public class listDoan {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "FullName")
@@ -70,13 +68,13 @@ public class listDoan {
     private String city;
 
     @Column(name = "StartDate")
-    private Date startDate;
+    private String startDate;
 
     @Column(name = "EndDate")
-    private Date endDate;
+    private String endDate;
 
     @Column(name = "BirthDate")
-    private Date birthDate;
+    private String birthDate;
 
     @Column(name = "Gender")
     private String gender;
@@ -84,7 +82,26 @@ public class listDoan {
     @Column(name ="phoneNumber")
     private String phoneNumber;
 
-    @Column(name = "Position")
-    private String position;
+    @Column(name = "PartyBranch")
+    private String partyBranch;
+
+    @Column(name = "PartyPosition")
+    private String partyPosition;
+
+    @Column(name = "Employee")
+    private String employee;
+
+    @Column(name = "JobName")
+    private String jobName;
+
+
+    @Column(name = "RestCount")
+    private String restCount;
+
+    @Column(name = "Alternative")
+    private String alternative;
+
+    @Column(name = "SubmitDay")
+    private String submitDay;
 
 }

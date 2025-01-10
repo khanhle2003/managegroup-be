@@ -78,6 +78,109 @@ public class DataofCusEntity {
 
     @Column(name = "phoneNumber")
     private String phoneNumber;
+
+    @Column(name = "PartyBranch")
+    private String partyBranch;
+
+    @Column(name = "PartyPosition")
+    private String partyPosition;
+
+    @Column(name = "Employee")
+    private String employee;
+
+    public String getSubmitDay() {
+        return submitDay;
+    }
+
+    public void setSubmitDay(String submitDay) {
+        this.submitDay = submitDay;
+    }
+
+    public String getAlternative() {
+        return alternative;
+    }
+
+    public void setAlternative(String alternative) {
+        this.alternative = alternative;
+    }
+
+    public String getRestCount() {
+        return restCount;
+    }
+
+    public void setRestCount(String restCount) {
+        this.restCount = restCount;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public String getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(String employee) {
+        this.employee = employee;
+    }
+
+    public String getPartyPosition() {
+        return partyPosition;
+    }
+
+    public void setPartyPosition(String partyPosition) {
+        this.partyPosition = partyPosition;
+    }
+
+    public String getPartyBranch() {
+        return partyBranch;
+    }
+
+    public void setPartyBranch(String partyBranch) {
+        this.partyBranch = partyBranch;
+    }
+
+    @Column(name = "JobName")
+    private String jobName;
+
+    @Column(name = "position")
+    private String position;
+
+    @Column(name = "RestCount")
+    private String restCount;
+
+    @Column(name = "Alternative")
+    private String alternative;
+
+    @Column(name = "SubmitDay")
+    private String submitDay;
+
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    @Column(name = "BirthDate")
+    private String birthDate;
+
+
+
     public Long getId() {
         return id;
     }
