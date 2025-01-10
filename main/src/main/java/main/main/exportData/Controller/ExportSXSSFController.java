@@ -43,27 +43,35 @@ public class ExportSXSSFController {
             // Tạo header
             Row headerRow = sheet.createRow(0);
             headerRow.createCell(0).setCellValue("Họ và Tên");
-            headerRow.createCell(1).setCellValue("Đơn vị");
-            headerRow.createCell(2).setCellValue("Quốc gia");
-            headerRow.createCell(3).setCellValue("Mục đích chuyến đi");
-            headerRow.createCell(4).setCellValue("Chức vụ");
-            headerRow.createCell(5).setCellValue("Tự túc");
-            headerRow.createCell(6).setCellValue("Nhà tài trợ");
-            headerRow.createCell(7).setCellValue("Bệnh viện");
-            headerRow.createCell(8).setCellValue("HD/BC");
-            headerRow.createCell(9).setCellValue("Đơn vị mời");
-            headerRow.createCell(10).setCellValue("Đoàn");
-            headerRow.createCell(11).setCellValue("Đảng viên");
-            headerRow.createCell(12).setCellValue("Số chuyến đi nước ngoài");
-            headerRow.createCell(13).setCellValue("Số thông báo");
-            headerRow.createCell(14).setCellValue("Ngày thông báo");
-            headerRow.createCell(15).setCellValue("Thành phố");
-            headerRow.createCell(16).setCellValue("Ngày bắt đầu");
-            headerRow.createCell(17).setCellValue("Ngày kết thúc");
-            headerRow.createCell(18).setCellValue("Email");
-            headerRow.createCell(19).setCellValue("Giới tính");
-            headerRow.createCell(20).setCellValue("Số điện thoại");
-            
+            headerRow.createCell(1).setCellValue("Ngày sinh");
+            headerRow.createCell(2).setCellValue("Giới tính");
+            headerRow.createCell(3).setCellValue("Đảng viên");
+            headerRow.createCell(4).setCellValue("Chức vụ đảng");
+            headerRow.createCell(5).setCellValue("Chức danh nghề nghiệp");
+            headerRow.createCell(6).setCellValue("Chức vụ chính quyền");
+            headerRow.createCell(7).setCellValue("Đơn vị công tác");
+            headerRow.createCell(8).setCellValue("Số điện thoại");
+            headerRow.createCell(9).setCellValue("Email");
+            headerRow.createCell(10).setCellValue("Quốc gia đến");
+            headerRow.createCell(11).setCellValue("Đơn vị mời");
+            headerRow.createCell(12).setCellValue("Mục đích chyến đi");
+            headerRow.createCell(13).setCellValue("Từ ngày");
+            headerRow.createCell(14).setCellValue("Đến ngày");
+            headerRow.createCell(15).setCellValue("Tự túc");
+            headerRow.createCell(16).setCellValue("Tài trợ");
+            headerRow.createCell(17).setCellValue("Bênh viện");
+            headerRow.createCell(18).setCellValue("Số lần xin đi ra trong nước ngoài");
+            headerRow.createCell(19).setCellValue("Nghị quyết đảng uỷ số");
+            headerRow.createCell(20).setCellValue("Nghị quyết đảng uỷ ngày");
+            headerRow.createCell(21).setCellValue("Người tiếp nhận");
+
+
+            headerRow.createCell(28).setCellValue("Ngày nộp báo cáo kết quả");
+
+            headerRow.createCell(24).setCellValue("Loại nhân viên");
+            headerRow.createCell(26).setCellValue("Số ngày đã nghỉ trong năm");
+            headerRow.createCell(28).setCellValue("Ngày nộp báo cáo kết quả");
+
     
             // Style cho ngày tháng
             CellStyle dateStyle = workbook.createCellStyle();
@@ -74,42 +82,46 @@ public class ExportSXSSFController {
             for (DataofCusEntity data : selectedData) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(data.getFullName());
-                row.createCell(1).setCellValue(data.getUnit());
-                row.createCell(2).setCellValue(data.getCountry());
-                row.createCell(3).setCellValue(data.getTripPurpose());
-                row.createCell(4).setCellValue(data.getJobTitle());
-                row.createCell(5).setCellValue(data.getSelfFunded());
-                row.createCell(6).setCellValue(data.getSponsor());
-                row.createCell(7).setCellValue(data.getHospital());
-                row.createCell(8).setCellValue(data.getHdBc());
-                row.createCell(9).setCellValue(data.getInvitationUnit());
-                row.createCell(10).setCellValue(data.getDoan());
-                row.createCell(11).setCellValue(data.getPartyMember());
-                row.createCell(12).setCellValue(data.getForeignTripCount());
-                row.createCell(13).setCellValue(data.getNotificationNumber());
-                row.createCell(14).setCellValue(data.getNotificationDate());
-                row.createCell(15).setCellValue(data.getCity());
-    
-                // Xử lý ngày tháng
-                Cell startDateCell = row.createCell(16);
+                row.createCell(1).setCellValue(data.getBirthDate());
+                row.createCell(2).setCellValue(data.getGender());
+                row.createCell(3).setCellValue(data.getPartyBranch());
+                row.createCell(4).setCellValue(data.getPartyPosition());
+                row.createCell(5).setCellValue(data.getJobTitle());
+                row.createCell(6).setCellValue(data.getJobName());
+                row.createCell(7).setCellValue(data.getUnit());
+                row.createCell(8).setCellValue(data.getPhoneNumber());
+                row.createCell(9).setCellValue(data.getEmail());
+                row.createCell(10).setCellValue(data.getCountry());
+                row.createCell(11).setCellValue(data.getInvitationUnit());
+                row.createCell(12).setCellValue(data.getTripPurpose());
+                Cell startDateCell = row.createCell(13);
                 if (data.getStartDate() != null) {
                     startDateCell.setCellValue(data.getStartDate());
                     startDateCell.setCellStyle(dateStyle);
                 }
-    
-                Cell endDateCell = row.createCell(17);
+                Cell endDateCell = row.createCell(14);
                 if (data.getEndDate() != null) {
                     endDateCell.setCellValue(data.getEndDate());
                     endDateCell.setCellStyle(dateStyle);
                 }
-    
-                row.createCell(18).setCellValue(data.getEmail());
-                row.createCell(19).setCellValue(data.getGender());
-                row.createCell(20).setCellValue(data.getPhoneNumber());
+
+                row.createCell(15).setCellValue(data.getSelfFunded());
+                row.createCell(16).setCellValue(data.getSponsor());
+                row.createCell(17).setCellValue(data.getHospital());
+                row.createCell(18).setCellValue(data.getSubmitDay());
+                row.createCell(19).setCellValue(data.getNotificationNumber());
+                row.createCell(20).setCellValue(data.getNotificationDate());
+                row.createCell(21).setCellValue(data.getAlternative());
+                row.createCell(22).setCellValue(data.getAlternative());
+                row.createCell(23).setCellValue(data.getJobName());
+                row.createCell(24).setCellValue(data.getRestCount());
+                row.createCell(25).setCellValue(data.getAlternative());
+                row.createCell(26).setCellValue(data.getSubmitDay());
+
             }
     
             // Auto size các cột
-            for (int i = 0; i < 21; i++) {
+            for (int i = 0; i < 27; i++) {
                 sheet.autoSizeColumn(i);
             }
     
