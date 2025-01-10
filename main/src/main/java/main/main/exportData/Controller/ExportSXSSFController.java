@@ -79,7 +79,6 @@ public class ExportSXSSFController {
             headerRow.createCell(34).setCellValue("Tên báo cáo");
             headerRow.createCell(35).setCellValue("Hoãn/hủy");
             headerRow.createCell(36).setCellValue("Khác");
-            
     
             // Style cho ngày tháng
             CellStyle dateStyle = workbook.createCellStyle();
@@ -92,6 +91,7 @@ public class ExportSXSSFController {
                 row.createCell(0).setCellValue(data.getFullName());
                 row.createCell(1).setCellValue(data.getGender());
                 row.createCell(2).setCellValue(data.getBirth_date());
+
                 row.createCell(3).setCellValue(data.getPartyBranch());
                 row.createCell(4).setCellValue(data.getPartyPosition());
                 row.createCell(5).setCellValue(data.getJobTitle());
@@ -126,10 +126,11 @@ public class ExportSXSSFController {
                 row.createCell(34).setCellValue(data.getTenBaoCao());
                 row.createCell(35).setCellValue(data.getHoanHuy());
                 row.createCell(36).setCellValue(data.getKhac());
+
             }
     
             // Auto size các cột
-            for (int i = 0; i < 21; i++) {
+            for (int i = 0; i < 27; i++) {
                 sheet.autoSizeColumn(i);
             }
     

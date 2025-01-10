@@ -100,4 +100,5 @@ public class DataofCusEntity {
     private String HoanHuy;
     @Column(name = "Khac")
     private String Khac;
+
 }

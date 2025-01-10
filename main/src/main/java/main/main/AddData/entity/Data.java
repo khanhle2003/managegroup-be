@@ -102,4 +102,5 @@ public class Data {
     private String Khac;
     @Column(name = "Employee")
     private String Employee;
+
 }
