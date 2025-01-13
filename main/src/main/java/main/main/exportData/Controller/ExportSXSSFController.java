@@ -74,7 +74,7 @@ public class ExportSXSSFController {
             headerRow.createCell(29).setCellValue("Số nghỉ phép");
             headerRow.createCell(30).setCellValue("Ngày nghỉ phép");
             headerRow.createCell(31).setCellValue("Ngày nộp báo cáo");
-            headerRow.createCell(32).setCellValue("Họ chiếu");
+            headerRow.createCell(32).setCellValue("Hộ chiếu");
             headerRow.createCell(33).setCellValue("Nội dung");
             headerRow.createCell(34).setCellValue("Tên báo cáo");
             headerRow.createCell(35).setCellValue("Hoãn/hủy");
