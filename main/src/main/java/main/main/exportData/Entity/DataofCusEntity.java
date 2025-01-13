@@ -25,6 +25,8 @@ public class DataofCusEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private int id;
+    @Column(name = "stt")
+    private String sTT;
     @Column(name = "FullName")
     private String FullName;
     @Column(name = "birthDate")
