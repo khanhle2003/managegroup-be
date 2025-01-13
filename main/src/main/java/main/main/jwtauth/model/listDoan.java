@@ -1,6 +1,6 @@
 package main.main.jwtauth.model;
 
-import java.util.Date;
+
 
 import javax.xml.crypto.Data;
 
@@ -70,10 +70,10 @@ public class listDoan {
     private String city;
 
     @Column(name = "StartDate")
-    private Date startDate;
+    private String startDate;
 
     @Column(name = "EndDate")
-    private Date endDate;
+    private String endDate;
 
     @Column(name = "BirthDate")
     private String birthDate;

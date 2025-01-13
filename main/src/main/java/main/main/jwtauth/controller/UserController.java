@@ -47,9 +47,8 @@ public class UserController {
         data.put("email", trip.getEmail() != null ? trip.getEmail() : "");
         data.put("country", trip.getCountry() != null ? trip.getCountry() : "");
         data.put("sponsor", trip.getSponsor() != null ? trip.getSponsor() : "");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        data.put("start_date", trip.getStartDate() != null ? trip.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(formatter) : "");
-        data.put("end_date", trip.getEndDate() != null ? trip.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(formatter) : "");
+        data.put("start_date", trip.getStartDate() != null ? trip.getStartDate(): "");
+        data.put("end_date", trip.getEndDate() != null ? trip.getEndDate() : "");
         data.put("trip_purpose", trip.getTripPurpose() != null ? trip.getTripPurpose() : "");
         data.put("self_funded", trip.getSelfFunded() != null ? trip.getSelfFunded() : "");
         data.put("hospital", trip.getHospital() != null ? trip.getHospital() : "");

@@ -17,10 +17,9 @@ public class FileService {
     private String generateFileName(Data entity) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return String.format("%d_%s_%s_%s.txt",
-                entity.getId(),
-                entity.getFullName().replaceAll("\\s+", "_"),
-                entity.getStartDate().format(formatter),
-                entity.getEndDate().format(formatter));
+                entity.getId()
+       
+             );
     }
 
     public void saveToNotepad(Data data) {

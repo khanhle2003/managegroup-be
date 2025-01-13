@@ -1,6 +1,6 @@
 package main.main.AddData.dto.request;
 
-import java.time.LocalDate;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,9 +24,9 @@ public class AddDataDto {
     private String invitationUnit;
     private String partyMember;
     private String foreignTripCount;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private LocalDate notificationDate;
+    private String startDate;
+    private String endDate;
+    private String notificationDate;
     private String notificationNumber;
     private String email;
     private String gender;
@@ -39,17 +39,17 @@ public class AddDataDto {
     private String restCount;
     private String alternative;
     private String submitDay;
-    private LocalDate birthDate;
-    private LocalDate birth_date; // Giữ nguyên tên biến
+    private String birthDate;
+    private String birth_date; // Giữ nguyên tên biến
     private String monthBegin; // Giữ nguyên tên biến
     private String Thoigiandichuyen; // Giữ nguyên tên biến
     private String giaTri; // Giữ nguyên tên biến
-    private LocalDate ngayXindi; // Giữ nguyên tên biến
-    private LocalDate ngayPnhanHS; // Giữ nguyên tên biến
-    private LocalDate ngaychuyenHSsangP; // Giữ nguyên tên biến
+    private String ngayXindi; // Giữ nguyên tên biến
+    private String ngayPnhanHS; // Giữ nguyên tên biến
+    private String ngaychuyenHSsangP; // Giữ nguyên tên biến
     private String SoNghiPhep; // Giữ nguyên tên biến
-    private LocalDate NgayNghiPhep; // Giữ nguyên tên biến
-    private LocalDate PhotoHochieu; // Giữ nguyên tên biến
+    private String NgayNghiPhep; // Giữ nguyên tên biến
+    private String PhotoHochieu; // Giữ nguyên tên biến
     private String NoiDung; // Giữ nguyên tên biến
     private String TenBaoCao; // Giữ nguyên tên biến
     private String HoanHuy; // Giữ nguyên tên biến
