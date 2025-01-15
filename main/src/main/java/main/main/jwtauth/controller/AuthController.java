@@ -1,17 +1,14 @@
 package main.main.jwtauth.controller;
 
 
+import main.main.jwtauth.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import main.main.jwtauth.model.User;
 import main.main.jwtauth.service.UserService;
@@ -56,5 +53,24 @@ public class AuthController {
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body("Invalid username or password");
         }
+    }
+
+    @Autowired
+    private JwtService jwtService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody String username) {
+        String token = jwtService.generateToken(username);
+        return ResponseEntity.ok(token);
+    }
+
+    @PostMapping("auth/refresh")
+    public ResponseEntity<?> refreshToken(@RequestHeader("Authorization") String oldToken) {
+        if (jwtService.validateToken(oldToken.substring(7))) {
+            String username = jwtService.extractUsername(oldToken.substring(7));
+            String newToken = jwtService.generateToken(username);
+            return ResponseEntity.ok(newToken);
+        }
+        return ResponseEntity.status(401).body("Token không hợp lệ hoặc hết hạn");
     }
 }
