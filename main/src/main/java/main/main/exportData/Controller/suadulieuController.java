@@ -22,4 +22,13 @@ public class suadulieuController {
             return ResponseEntity.notFound().build();
         }
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteData(@PathVariable int id) {
+        try {
+            service.deleteData(id);
+            return ResponseEntity.noContent().build(); // 204 No Content
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        }
+    }
 }

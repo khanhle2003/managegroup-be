@@ -62,4 +62,10 @@ public class suadulieuService {
             throw new RuntimeException("Entity not found with ID: " + id);
         }
     }
+    public void deleteData(int id) {
+        if (!repository.existsById(id)) {
+            throw new RuntimeException("Data not found");
+        }
+        repository.deleteById(id);
+    }
 }
