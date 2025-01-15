@@ -43,14 +43,17 @@ public class JwtUtils {
 
     private String createToken(User user) {
         Claims claims = Jwts.claims();
-        claims.put("username", user.getUsername()); // Thêm username
+        claims.put("username", user.getUsername()); 
         claims.put("email", user.getEmail());
 
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 
+                
+                
+                * 10))
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }

@@ -83,7 +83,7 @@ public class DataofCusEntity {
     private String notificationDate;
     @Column(name = "ngaychuyenHSsangP")
     private String ngaychuyenHSsangP;
-    @Column(name = "Alternative")//ng tiep nhan
+    @Column(name = "Alternative")
     private String alternative;
     @Column(name = "SoNghiPhep")
     private String SoNghiPhep;
