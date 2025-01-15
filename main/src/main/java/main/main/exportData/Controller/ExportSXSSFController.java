@@ -52,7 +52,7 @@ public class ExportSXSSFController {
             headerRow.createCell(7).setCellValue("Đơn vị công tác");
             headerRow.createCell(8).setCellValue("Số điện thoại");
             headerRow.createCell(9).setCellValue("Email");
-            headerRow.createCell(10).setCellValue("Quốc gia đền");
+            headerRow.createCell(10).setCellValue("Quốc gia đến");
             headerRow.createCell(11).setCellValue("Đơn vị mời");
             headerRow.createCell(12).setCellValue("Mời đích danh");
             headerRow.createCell(13).setCellValue("Mục đích chuyến đi");
