@@ -19,4 +19,8 @@ import main.main.thongke.service.dataofCountryService;
         public List<String> getDistinctCountries() {
             return dataService.getAllDistinctCountries();
         }
+        @GetMapping("/invitation")
+        public List<String> getDistinctInvitationUnits() {
+            return dataService.getAllDistinctInvitationUnits();
+        }
 }

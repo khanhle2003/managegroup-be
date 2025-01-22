@@ -9,4 +9,10 @@ import main.main.exportData.Entity.DataofCusEntity;
 public interface dataofCountryRepo extends JpaRepository<DataofCusEntity, Integer> {
     @Query("SELECT DISTINCT d.Country FROM DataofCusEntity d")
     List<String> findDistinctCountries();
+
+
+
+
+    @Query("SELECT DISTINCT d.InvitationUnit FROM DataofCusEntity d")
+    List<String> findDistinctInvitationUnits();
 }
