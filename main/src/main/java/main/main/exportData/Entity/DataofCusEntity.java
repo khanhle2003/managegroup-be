@@ -102,5 +102,5 @@ public class DataofCusEntity {
     @Column(name = "Khac")
     private String Khac;
     @Column(name = "ngayTrungBinh")
-    private int NgayTrungBinh;
+    private Integer NgayTrungBinh;
 }

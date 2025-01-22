@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DataofCusService {
     @Autowired
-    private DataofCusRepo DataofCusRepo;
+    private static DataofCusRepo DataofCusRepo;
 
     public List<DataofCusEntity> getAllTrips() {
         return DataofCusRepo.findAll();
