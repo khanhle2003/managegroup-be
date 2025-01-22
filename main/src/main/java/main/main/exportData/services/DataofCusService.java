@@ -15,5 +15,5 @@ public class DataofCusService {
     public List<DataofCusEntity> getAllTrips() {
         return DataofCusRepo.findAll();
     }
-
 }
+
