@@ -14,4 +14,9 @@ public class dataofCountryService {
     public List<String> getAllDistinctCountries() {
         return dataRepository.findDistinctCountries();
     }
+
+
+    public List<String> getAllDistinctInvitationUnits() {
+        return dataRepository.findDistinctInvitationUnits();
+    }
 }
