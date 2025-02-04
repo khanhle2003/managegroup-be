@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import main.main.exportData.Entity.DataofCusEntity;
 import main.main.exportData.services.DataofCusService;
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -50,7 +51,7 @@ public class ExportSXSSFController {
         new File(EXPORT_DIRECTORY).mkdirs();
     }
     // @Scheduled(cron = "*/5 * * * * *")
-   @Scheduled(cron = "0 0 0 * * SUN")
+//    @Scheduled(cron = "0 0 0 * * SUN")
     public void automaticWeeklyExport() {
         try {
             List<DataofCusEntity> allData = dataofCusService.getAllTrips();
