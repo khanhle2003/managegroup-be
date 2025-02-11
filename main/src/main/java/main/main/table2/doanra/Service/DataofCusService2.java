@@ -11,12 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class DataofCusService2 {
     @Autowired
-    private DoanRaRepo DataofCusRepo;
+    private static DoanRaRepo DataofCusRepo;
 
-    public List<DoanRaEntity> getAllTrips() {
+    public static List<DoanRaEntity> getAllTrips() {
         return DataofCusRepo.findAll();
-        
-
     }
     public DoanRaEntity addDoanRa(DoanRaEntity doanRaEntity) {
         return DataofCusRepo.save(doanRaEntity);
