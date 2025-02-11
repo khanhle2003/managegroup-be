@@ -26,7 +26,7 @@ public class listDoanController {
     @Autowired
     private listDoanservice ListDoanservice;
 
-    @GetMapping("/auth/qldoan")
+    @GetMapping("/doanra")
     @ResponseBody
     public List<listDoan> showTrips(Model model) {
         List<listDoan> listDoans = ListDoanservice.getAllTrips();

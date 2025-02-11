@@ -1,27 +1,34 @@
 package main.main.table2.doanra.Controller;
 
 import io.jsonwebtoken.io.IOException;
-import main.main.exportData.services.ExcelImportService;
 import main.main.table2.doanra.Entity.DoanRaEntity;
 import main.main.table2.doanra.Service.DataofCusService2;
 import main.main.table2.doanra.Service.DoanRaImport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping
 public class DoanRaController {
-    @Autowired
-    private DoanRaImport doanRaImport;
+
     @Autowired
     private DataofCusService2 doanrasService2;
+
+    @GetMapping("/doanvao")
+    public ResponseEntity<List<DoanRaEntity>> getAllTrips() {
+        List<DoanRaEntity> list = doanrasService2.getAllTrips();
+        return ResponseEntity.ok(list);
+    }
+
+
+    @Autowired
+    private DoanRaImport doanRaImport;
+
     @PostMapping("/import2")
     public ResponseEntity<String> importExcel(@RequestParam("file") MultipartFile file) {
         try {
