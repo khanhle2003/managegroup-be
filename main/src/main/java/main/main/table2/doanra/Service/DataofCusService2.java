@@ -10,13 +10,19 @@ import java.util.List;
 public class DataofCusService2 {
 
     @Autowired
-    private DoanRaRepo doanraRepo; // ✅ KHÔNG DÙNG static
+    private DoanRaRepo doanraRepo;
 
-    public List<DoanRaEntity> getAllTrips() { // ✅ Không dùng static
+    public List<DoanRaEntity> getAllTrips() {
         return doanraRepo.findAll();
     }
 
     public DoanRaEntity addDoanRa(DoanRaEntity doanRaEntity) {
         return doanraRepo.save(doanRaEntity);
+    }
+    public void deleteData(long id) {
+        if (!doanraRepo.existsById(id)) {
+            throw new RuntimeException("Data not found");
+        }
+        doanraRepo.deleteById(id);
     }
 }
