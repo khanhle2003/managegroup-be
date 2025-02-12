@@ -25,11 +25,21 @@ public class DoanRaController {
 
     @Autowired
     private DataofCusService2 dataofCusService2;
+
     @GetMapping("/doanvao")
     @ResponseBody
     public List<DoanRaEntity> showTrips(Model model) {
         List<DoanRaEntity> doanras = dataofCusService2.getAllTrips();
         return doanras;
+    }
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Void> deleteData(@PathVariable long id) {
+        try {
+            dataofCusService2.deleteData(id);
+            return ResponseEntity.noContent().build(); // 204 No Content
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        }
     }
     @Autowired
     private DoanRaImport doanRaImport;

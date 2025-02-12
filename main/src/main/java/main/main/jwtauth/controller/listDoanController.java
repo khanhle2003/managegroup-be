@@ -3,15 +3,12 @@ package main.main.jwtauth.controller;
 
 import main.main.jwtauth.model.listDoan;
 import main.main.jwtauth.service.listDoanservice;
-import main.main.table2.doanra.Entity.DoanRaEntity;
-import main.main.table2.doanra.Service.DataofCusService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
