@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import main.main.exportData.Entity.DataofCusEntity;
 import main.main.exportData.services.userdetailService;
 @RestController
-@RequestMapping("/auth/qldoan")
+@RequestMapping("/qldoan")
 
 public class userdetailController {
 @Autowired

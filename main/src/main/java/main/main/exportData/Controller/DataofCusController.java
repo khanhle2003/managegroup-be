@@ -36,6 +36,4 @@ public class DataofCusController {
         String sql = "SELECT notificationDate, ngayNghiPhep FROM ten_bang_cu";
         return jdbcTemplate.queryForList(sql);
     }
-
-
 }
