@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "data2")
+@Table(name = "data")
 public class listDoan {
 
     @Id

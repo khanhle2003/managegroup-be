@@ -51,7 +51,7 @@ public class ExportSXSSFController {
         new File(EXPORT_DIRECTORY).mkdirs();
     }
     // @Scheduled(cron = "*/5 * * * * *")
-//    @Scheduled(cron = "0 0 0 * * SUN")
+   @Scheduled(cron = "0 0 0 * * SUN")
     public void automaticWeeklyExport() {
         try {
             List<DataofCusEntity> allData = dataofCusService.getAllTrips();
