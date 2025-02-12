@@ -26,9 +26,9 @@ public class suadulieuController {
     public ResponseEntity<Void> deleteData(@PathVariable int id) {
         try {
             service.deleteData(id);
-            return ResponseEntity.noContent().build(); // 204 No Content
+            return ResponseEntity.noContent().build(); 
         } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build(); // 404 Not Found
+            return ResponseEntity.notFound().build(); 
         }
     }
 }
