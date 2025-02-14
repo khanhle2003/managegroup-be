@@ -18,7 +18,7 @@ public class thongkeService2 {
    public CountryDetailResponse getDataByYearAndCountries(String year, List<String> countries) {
        List<DoanRaEntity> data = thongkerepo2.findByYearAndCountries(year, countries);
        
-       // Đếm số lượng theo từng quốc gia
+
        List<Object[]> countResults = thongkerepo2.countByYearAndCountries(year, countries);
        Map<String, Long> countByCountry = countResults.stream()
            .collect(Collectors.toMap(

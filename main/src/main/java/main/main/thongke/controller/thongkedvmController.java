@@ -9,13 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/search")
+@RequestMapping("/api/search/invitation")
 public class thongkedvmController {
 
     @Autowired
     private thongkedvmService thongkeService;
 
-    @PostMapping("/invitation")
+    @PostMapping("/doanra")
     public ResponseEntity<?> searchByInvitationUnitsAndYear(@RequestBody InvitationSearchRequest request) {
         try {
     
