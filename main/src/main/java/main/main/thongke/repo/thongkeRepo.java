@@ -14,14 +14,14 @@ import java.util.List;
 public interface thongkeRepo extends JpaRepository<DataofCusEntity, Integer> {
 
    
-    @Query(value = "SELECT * FROM data WHERE country IN :countries AND start_date LIKE %:year%", 
+    @Query(value = "SELECT * FROM tonghop WHERE country IN :countries AND start_date LIKE %:year%", 
            nativeQuery = true)
     List<DataofCusEntity> findByCountriesAndYear(
         @Param("countries") List<String> countries,
         @Param("year") String year
     );
     
-    @Query(value = "SELECT COUNT(*) FROM data WHERE country IN :countries AND start_date LIKE %:year%", 
+    @Query(value = "SELECT COUNT(*) FROM tonghop WHERE country IN :countries AND start_date LIKE %:year%", 
            nativeQuery = true)
     Long countByCountriesAndYear(
         @Param("countries") List<String> countries,

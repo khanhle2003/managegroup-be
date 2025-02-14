@@ -10,9 +10,6 @@ public interface dataofCountryRepo extends JpaRepository<DataofCusEntity, Intege
     @Query("SELECT DISTINCT d.Country FROM DataofCusEntity d")
     List<String> findDistinctCountries();
 
-
-
-
     @Query("SELECT DISTINCT d.InvitationUnit FROM DataofCusEntity d")
     List<String> findDistinctInvitationUnits();
 }

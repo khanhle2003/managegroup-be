@@ -19,7 +19,7 @@ import jakarta.persistence.Column;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "data2")
+@Table(name = "tonghop")
 public class DataofCusEntity {
     
     @Id

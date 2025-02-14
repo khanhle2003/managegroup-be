@@ -10,14 +10,14 @@ import java.util.List;
 @Repository
 public interface thongkedvmRepo extends JpaRepository<DataofCusEntity, Integer> {
     
-    @Query(value = "SELECT * FROM data WHERE invitation_unit IN :invitationUnits AND start_date LIKE %:year%", 
+    @Query(value = "SELECT * FROM tonghop WHERE invitation_unit IN :invitationUnits AND start_date LIKE %:year%", 
            nativeQuery = true)
     List<DataofCusEntity> findByInvitationUnitsAndYear(
         @Param("invitationUnits") List<String> invitationUnits,
         @Param("year") String year
     );
     
-    @Query(value = "SELECT COUNT(*) FROM data WHERE invitation_unit IN :invitationUnits AND start_date LIKE %:year%", 
+    @Query(value = "SELECT COUNT(*) FROM tonghop WHERE invitation_unit IN :invitationUnits AND start_date LIKE %:year%", 
            nativeQuery = true)
     Long countByInvitationUnitsAndYear(
         @Param("invitationUnits") List<String> invitationUnits,
