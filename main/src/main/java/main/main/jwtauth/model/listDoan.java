@@ -1,7 +1,11 @@
 package main.main.jwtauth.model;
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -47,16 +51,16 @@ public class listDoan {
     @Column(name = "EndDate")
     private String EndDate;
     @Column(name = "baogomthoigiandichuyenchua")
-    private String baogomthoigiandichuyenchuy;
-    @Column(name = "TripPurpose") //muc dich chuyen di
+    private String baogomthoigiandichuyenchua;
+    @Column(name = "TripPurpose") // muc dich chuyen di
     private String TripPurpose;
     @Column(name = "ndcuthe")
     private String ndcuthe;
-    @Column(name = "SelfFunded") //tự túc
+    @Column(name = "SelfFunded") // tự túc
     private String SelfFunded;
-    @Column(name = "Hospital") //bệnh viện
+    @Column(name = "Hospital") // bệnh viện
     private String Hospital;
-    @Column(name = "ForeignTripCount") //so lan xin di nc ngoai
+    @Column(name = "ForeignTripCount") // so lan xin di nc ngoai
     private String ForeignTripCount;
     @Column(name = "bangiaocv")
     private String bangiaocv;
@@ -64,18 +68,18 @@ public class listDoan {
     private String email;
     @Column(name = "MoiDichDanh")
     private String MoiDichDanh;
-    @Column(name = "InvitationUnit") //đơn vị mời
+    @Column(name = "InvitationUnit") // đơn vị mời
     private String InvitationUnit;
-    @Column(name = "tentcmoi") //tên tổ chức, cá nhân mời
+    @Column(name = "tentcmoi") // tên tổ chức, cá nhân mời
     private String tentcmoi;
-    @Column(name = "ndhoinghi") //nd cụ thể hội nghị
+    @Column(name = "ndhoinghi") // nd cụ thể hội nghị
     private String ndhoinghi;
     @Column(name = "songaynghiphep")
     private String songaynghiphep;
     @Column(name = "ndviecrieng") // nd cụ thể việc riêng
     private String ndviecrieng;
     @Column(name = "tcngoaiBvtaitro") // tổ chức, cá nhân ngoài bv tài trợ
-    private String tcngoaiBvtaito;
+    private String tcngoaiBvtaitro;
     @Column(name = "dangtaithumoi")
     private String dangtaithumoi;
     @Column(name = "Thongtindinhkem")
@@ -84,7 +88,7 @@ public class listDoan {
     private String CCCD;
     @Column(name = "TenBaoCao")
     private String TenBaoCao;
-    @Column(name = "oral") //đăng tải chứng nhận/xác nhận báo cáo viên
+    @Column(name = "oral") // đăng tải chứng nhận/xác nhận báo cáo viên
     private String oral;
     @Column(name = "qddinuocngoai") // đã có quyet định đi nc ngoài chưa
     private String qddinuocngoai;
@@ -104,16 +108,17 @@ public class listDoan {
     private String baocaotomtat;
     @Column(name = "tiepxuccoquan")
     private String tiepxuccoquan;
-    @Column(name = "viechaphanhquydinnhbaovebimatnn") //Việc chấp hành quy định bảo vệ bí mật Nhà nước
+    @Column(name = "viechaphanhquydinnhbaovebimatnn") // Việc chấp hành quy định bảo vệ bí mật Nhà nước
     private String viechaphanhbaovebimatnn;
-    @Column(name = "vdelienquandenchinhtrinoibo") //Những vấn đề khác liên quan đến chính trị nội bộ
+    @Column(name = "vdelienquandenchinhtrinoibo") // Những vấn đề khác liên quan đến chính trị nội bộ
     private String vdelienquandenchinhtrinoibo;
     @Column(name = "hdngoaikehoach")
     private String hdngoaikehoach;
     @Column(name = "Certificate") // đăng tải bằng cấp chứng chỉ, chứng nhận
     private String Certificate;
     @Column(name = "ndynghiaapdungvatrienkhaibenhvien")
-    //Những nội dung có ý nghĩa thiết thực có thể áp dụng và triển khai đối với Bệnh viện và đơn vị
+    // Những nội dung có ý nghĩa thiết thực có thể áp dụng và triển khai đối với
+    // Bệnh viện và đơn vị
     private String ndynghiaapdungvatrienkhaibenhvien;
     @Column(name = "dexuatkiennghi")
     private String dexuatkiennghi;
@@ -141,7 +146,7 @@ public class listDoan {
     private String ngayPnhanHS;
     @Column(name = "ngaychuyenHSsangP")
     private String ngaychuyenHSsangP;
-    @Column(name = "Alternative")//ng tiep nhan
+    @Column(name = "Alternative") // ng tiep nhan
     private String alternative;
     @Column(name = "SoNghiPhep")
     private String SoNghiPhep;
@@ -164,11 +169,11 @@ public class listDoan {
     private String employee;
     @Column(name = "RestCount")
     private String restCount;
-    @Column(name = "monthBegin")//thang bat dau
+    @Column(name = "monthBegin") // thang bat dau
     private String monthBegon;
     @Column(name = "Thoigiandichuyen")
     private String Thoigiandichuyen;
-    @Column(name = "Sponsor") //nhà tài trợ
+    @Column(name = "Sponsor") // nhà tài trợ
     private String Sponsor;
 
 }
