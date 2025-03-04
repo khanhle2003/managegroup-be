@@ -170,4 +170,5 @@ public class listDoan {
     private String Thoigiandichuyen;
     @Column(name = "Sponsor") //nhà tài trợ
     private String Sponsor;
+
 }
