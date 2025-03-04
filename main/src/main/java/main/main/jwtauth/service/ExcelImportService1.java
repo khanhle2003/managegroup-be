@@ -21,7 +21,7 @@ import main.main.jwtauth.repository.listDoanRepo;
 @Transactional
 public class ExcelImportService1 {
     @Autowired
-    private listDoanRepo dataofCusRepo;
+    private listDoanRepo listDoanRepo;
 
     public void importFromExcel(MultipartFile file) throws IOException, java.io.IOException {
         try (Workbook workbook = WorkbookFactory.create(file.getInputStream())) {
@@ -93,7 +93,7 @@ public class ExcelImportService1 {
                 listdoan1.setIncrement(getCellValue(row.getCell(56)));
                 listdoan1.setPdfURL(getCellValue(row.getCell(57)));
 
-                dataofCusRepo.save(listdoan1);
+                listDoanRepo.save(listdoan1);
 
             }
         }
