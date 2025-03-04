@@ -58,7 +58,7 @@ public class SecurityConfig {
                 .addFilterBefore(new JwtAuthenticationFilter(userService, jwtUtils), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
-    }
+    } 
 //    @Autowired
 //    public void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
