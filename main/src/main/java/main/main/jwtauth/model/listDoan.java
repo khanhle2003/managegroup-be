@@ -18,8 +18,6 @@ public class listDoan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "stt")
-    private String stt;
     @Column(name = "dauThoiGian")
     private String dauthoigian;
     @Column(name = "FullName")
@@ -42,8 +40,6 @@ public class listDoan {
     private String Unit;
     @Column(name = "phoneNumber")
     private String phoneNumber;
-    @Column(name = "Country")
-    private String Country;
     @Column(name = "codcmoihaykhong")
     private String codcmoihaykhong;
     @Column(name = "StartDate")
@@ -86,6 +82,8 @@ public class listDoan {
     private String Thongtindinhkem;
     @Column(name = "CCCD")
     private String CCCD;
+    @Column(name = "Country")
+    private String Country;
     @Column(name = "TenBaoCao")
     private String TenBaoCao;
     @Column(name = "oral") // đăng tải chứng nhận/xác nhận báo cáo viên
