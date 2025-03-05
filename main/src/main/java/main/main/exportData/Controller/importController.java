@@ -30,15 +30,5 @@ public class importController {
         }
     }
 
-    @PostMapping("/import1")
-    public ResponseEntity<String> importExcel1(@RequestParam("file") MultipartFile file) {
-        try {
-            ExcelImportService1 excelImportService1 = new ExcelImportService1();
-            excelImportService1.importFromExcel(file);
-            return ResponseEntity.ok("Import thành công");
-        } catch (IOException | java.io.IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Lỗi khi import: " + e.getMessage());
-        }
-    }
+
 }
