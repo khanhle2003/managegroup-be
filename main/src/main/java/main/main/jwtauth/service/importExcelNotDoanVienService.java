@@ -33,6 +33,7 @@ public class importExcelNotDoanVienService {
                 listdoanNull.setFullName(getCellValue(row.getCell(1)));
                 listdoanNull.setBirthDate(getCellValue(row.getCell(2)));
                 listdoanNull.setGender(getCellValue(row.getCell(3)));
+                listdoanNull.setDangVien("KHÔNG");
                 listdoanNull.setPartyBranch("KHÔNG");
                 listdoanNull.setPartyPosition("KHÔNG");
                 listdoanNull.setLanhanvien(getCellValue(row.getCell(4)));
