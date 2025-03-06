@@ -26,6 +26,8 @@ public class listDoan {
     private String birthDate;
     @Column(name = "gender")
     private String gender;
+    @Column(name = "dangvien")
+    private String DangVien;
     @Column(name = "PartyBranch")
     private String partyBranch;
     @Column(name = "PartyPosition")
